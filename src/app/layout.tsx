@@ -33,7 +33,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Header />
             <main className="flex-1 flex">
-              <PageFrame>{children}</PageFrame>
+              <PageFrame inset="p-0">{children}</PageFrame>
             </main>
             <Footer />
           </div>
