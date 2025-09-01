@@ -120,18 +120,31 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-.bg-grid {
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+@layer utilities {
+  :root {
+    --grid: 20px;       /* cell size */
+    --grid-line: 1px;   /* line thickness */
+    --grid-alpha: 0.08; /* 0..1 opacity */
+  }
+
+  .bg-grid-in-frame {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, var(--grid-alpha)) var(--grid-line), transparent var(--grid-line)),
+      linear-gradient(to bottom, rgba(0, 0, 0, var(--grid-alpha)) var(--grid-line), transparent var(--grid-line));
+    background-size: var(--grid) var(--grid);
+    background-position: center center;
+    /* Optional:
+       background-origin: content-box;
+       background-clip: content-box;
+    */
+  }
+  .dark .bg-grid-in-frame {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, var(--grid-alpha)) var(--grid-line), transparent var(--grid-line)),
+      linear-gradient(to bottom, rgba(255, 255, 255, var(--grid-alpha)) var(--grid-line), transparent var(--grid-line));
+  }
 }
 
-.dark .bg-grid {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-}
 
 
 @layer base {

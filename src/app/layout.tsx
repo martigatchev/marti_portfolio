@@ -1,11 +1,11 @@
-// layout.tsx
-
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { inter, display } from "./fonts";
+import { PageFrame } from "@/components/page-frame";
 
 export const metadata: Metadata = {
   title: "Marti Gatchev – Portfolio",
@@ -32,7 +32,9 @@ export default function RootLayout({
         >
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 flex">
+              <PageFrame>{children}</PageFrame>
+            </main>
             <Footer />
           </div>
         </ThemeProvider>
