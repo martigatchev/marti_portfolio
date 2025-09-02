@@ -39,32 +39,31 @@ const CARDS: Card[] = [
 
 function ExpertiseCard({ c }: { c: Card }) {
   return (
-    <div className="h-full p-8 sm:p-10 bg-white/20">
+    <div className="h-full p-8 sm:p-10 bg-white/70">
       <div className="flex items-start gap-4">
         <div className="opacity-90">{c.icon}</div>
-        <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight text-black">
-          <span className={`underline underline-offset-[10px] decoration-4 ${c.underlineClass}`}>
+        <div className="text-2xl sm:text-3xl font-extrabold leading-tight text-black">
+          <span className="underline decoration-[var(--c-lilac,#a78bfa)] decoration-4 underline-offset-0">
             {c.titleTop}
           </span>
           <br />
           {c.titleBottom}
-        </h3>
+        </div>
       </div>
 
       <div className="mt-6 text-sm text-black/80">
-        <span className="block text-black/50 text-xs">&lt;h3&gt;</span>
         <p className="mt-2 border-l border-white/30 pl-4 leading-relaxed">
           {c.blurb}
         </p>
-        <span className="mt-2 block text-black/50 text-xs">&lt;/h3&gt;</span>
       </div>
     </div>
   );
 }
 
+
 function QuoteCard() {
   return (
-    <div className="h-full p-8 sm:p-10 bg-sky-400/20 flex">
+    <div className="h-full p-8 sm:p-10 bg-sky-400/70 flex">
       <blockquote className="m-0 grid gap-4">
         <div className="flex gap-4">
           <div className="w-1 rounded-full bg-[var(--c-lilac,#a78bfa)]" />

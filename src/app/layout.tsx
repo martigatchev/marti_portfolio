@@ -13,29 +13,15 @@ export const metadata: Metadata = {
   description: "Full-stack developer portfolio site of Marti Gatchev.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${inter.variable} ${display.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${display.variable}`}>
       <body className="antialiased font-sans bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1 flex">
-              <PageFrame inset="p-0">{children}</PageFrame>
-            </main>
+            {/* No global PageFrame here */}
+            <main className="flex-1 flex">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

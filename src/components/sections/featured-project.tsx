@@ -53,20 +53,20 @@ export default function FeaturedProject({
         "
       >
         {/* LEFT: description panel */}
-        <div className="bg-sky-400/20 h-full p-8 sm:p-12 flex flex-col gap-8">
+        <div className="bg-white/70 h-full p-8 sm:p-12 flex flex-col gap-8">
           <div className="grid gap-4">
-            <p className="uppercase tracking-widest text-xs font-medium text-white/70">
+            <p className="uppercase tracking-widest text-xs font-medium text-black/70">
               {eyebrow}
             </p>
-            <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight text-[var(--c-fg,white)]">
+            <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight text-[var(--c-fg,black)]">
               {title}
             </h3>
-            <p className="text-base sm:text-lg leading-relaxed text-white/85">
+            <p className="text-base sm:text-lg leading-relaxed text-black/85">
               {summary}
             </p>
 
             {bullets.length > 0 && (
-              <ul className="mt-2 grid gap-2 text-white/90 list-disc pl-5">
+              <ul className="mt-2 grid gap-2 text-black/90 list-disc pl-5">
                 {bullets.map((b, i) => (
                   <li key={i}>{b}</li>
                 ))}
@@ -84,7 +84,7 @@ export default function FeaturedProject({
             </Link>
             <Link
               href="/projects"
-              className="text-sm text-white/80 hover:text-white underline underline-offset-4"
+              className="text-sm text-black/80 hover:text-black underline underline-offset-4"
             >
               View all projects
             </Link>
@@ -92,7 +92,7 @@ export default function FeaturedProject({
         </div>
 
         {/* RIGHT: preview panel */}
-        <div className="bg-sky-400/20 h-full p-6 sm:p-10">
+        <div className="bg-white/70 h-full p-6 sm:p-10">
           <div className={`relative w-full ${aspectClass(imageAspect)} max-h-[70vh] mx-auto`}>
             <div
               className={`absolute inset-0 rounded-xl overflow-hidden ring-1 ring-white/30

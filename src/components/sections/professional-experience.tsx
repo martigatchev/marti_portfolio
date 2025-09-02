@@ -98,7 +98,7 @@ function ExperienceRow({
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <div className="mt-3 rounded-xl ring-1 ring-white/15 bg-sky-400/20 px-4 sm:px-6 py-6">
+            <div className="mt-3 rounded-xl ring-1 ring-white/15 bg-sky-400/80 px-4 sm:px-6 py-6">
               <div className="grid gap-6 md:grid-cols-[1fr,240px] md:items-start">
                 {/* Left: meta + text */}
                 <div className="grid gap-4 min-w-0">
