@@ -31,11 +31,14 @@ export default function Home() {
             {/* Overlay content */}
             <div className="pointer-events-none absolute inset-0 z-10 grid place-content-center px-4 text-center">
               <div className="flex flex-col items-center gap-3">
-                <h1 className="font-display tracking-tightest uppercase text-white text-6xl sm:text-8xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
-                  MARTI GATCHEV
+                <h1 className="font-display uppercase text-white leading-none tracking-tightest
+               text-[clamp(3.5rem,8vw,12rem)]
+               drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">  MARTI GATCHEV
                 </h1>
-                <p className="font-display uppercase text-white/90 text-[10px] sm:text-sm md:text-2xl tracking-[0.28em] drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
-                  SOFTWARE ENGINEER, FRONT-END, & APP DEVELOPER
+                <p className="font-display uppercase text-white/90
+              text-[clamp(0.9rem,2.2vw,2.5rem)]
+              tracking-[clamp(0.14em,0.6vw,0.28em)]
+              drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">  SOFTWARE ENGINEER, FRONT-END, & APP DEVELOPER
                 </p>
               </div>
             </div>
