@@ -1,6 +1,8 @@
 // about/page.tsx
 
 import type { Metadata } from "next";
+import Image from "next/image";
+
 
 export const metadata: Metadata = {
   title: "About — Marti Gatchev",
@@ -30,6 +32,40 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
+
+ <div className="mx-auto max-w-3xl px-6">
+          <div className="mx-auto max-w-xl text-center">
+            <p className="text-sub uppercase text-lg sm:text-xl text-muted-foreground">
+              I’m a full-stack software engineer—React and TypeScript on the front
+              end; Python and C# on the back end. I care about clarity, reliability,
+              and thoughtful UX. I apply AI in my own creative projects and bring
+              those capabilities into approachable, user-first workflows.
+            </p>
+
+            <p className="mt-20 font-sans font-light tracking-[0.02em] leading-relaxed text-lg sm:text-xl text-muted-foreground">
+              I’m a full-stack software engineer—React and TypeScript on the front
+              end; Python and C# on the back end. I care about clarity, reliability,
+              and thoughtful UX. I apply AI in my own creative projects and bring
+              those capabilities into approachable, user-first workflows.
+            </p>
+
+            <p className="mt-20 font-sans font-light tracking-[0.02em] leading-relaxed text-lg sm:text-xl text-muted-foreground">
+              I’m a full-stack software engineer experienced in TypeScript/React,
+              Python, and C#. I care about clarity, reliability, and thoughtful UX.
+              I apply AI in my own creative projects and bring those capabilities
+              into approachable, user-first workflows.
+            </p>
+          </div>
+          </div>
+
+      <Image
+        src="/aurora-hyper.jpg"
+        alt="Marti portrait"
+        width={1200}
+        height={800}
+        className="mt-12 w-full rounded-lg border"
+        priority={false}
+      />
     </section>
   );
 }

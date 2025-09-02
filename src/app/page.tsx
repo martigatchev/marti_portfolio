@@ -1,14 +1,17 @@
-// page.tsx
+// app/page.tsx
 import Image from "next/image";
 import PixelMosaic from "@/components/ui/pixel-mosaic";
+import Expertise from "@/components/sections/expertise";
+import FeaturedProject from "@/components/sections/featured-project";
+import ExperienceSection from "@/components/sections/professional-experience";
 
 export default function Home() {
   return (
-    <section className="bg-grid min-h-screen w-full px-6 sm:px-12 py-20 ring-8 ring-red-500 ring-inset">
-  <main className="flex flex-col items-center justify-center text-center ring-8 ring-blue-500 ring-inset">
-    <div className="relative w-full max-w-5xl ring-8 ring-green-500 ring-inset">
-      <div className="relative w-full h-140 2xl:border overflow-hidden ring-8 ring-fuchsia-500 ring-inset">
-        
+    <section className="bg-grid min-h-screen w-full p-0">
+      <main className="">
+        {/* HERO (full-bleed) */}
+        <div className="relative w-full max-w-none">
+          <div className="relative w-full h-[80dvh] overflow-hidden ring-0 ring-black-500 ring-inset">
             <PixelMosaic
               className="w-full h-full"           // fill container
               pixelSize={1}
@@ -26,8 +29,8 @@ export default function Home() {
             />
 
             {/* Overlay content */}
-            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-              <div className="flex flex-col items-center gap-3 px-4 text-center">
+            <div className="pointer-events-none absolute inset-0 z-10 grid place-content-center px-4 text-center">
+              <div className="flex flex-col items-center gap-3">
                 <h1 className="font-display tracking-tightest uppercase text-white text-6xl sm:text-8xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
                   MARTI GATCHEV
                 </h1>
@@ -39,36 +42,63 @@ export default function Home() {
           </div>
         </div>
 
-        <p className="text-sub uppercase max-w-xl text-lg sm:text-xl text-muted-foreground">
-          I’m a full-stack software engineer—React and TypeScript on the front
-          end; Python and C# on the back end. I care about clarity, reliability,
-          and thoughtful UX. I apply AI in my own creative projects and bring
-          those capabilities into approachable, user-first workflows.
-        </p>
 
-        <p className="mt-20 max-w-xl font-sans font-light tracking-[0.02em] leading-relaxed text-lg sm:text-xl text-muted-foreground">
-          I’m a full-stack software engineer—React and TypeScript on the front
-          end; Python and C# on the back end. I care about clarity, reliability,
-          and thoughtful UX. I apply AI in my own creative projects and bring
-          those capabilities into approachable, user-first workflows.
-        </p>
+        <div className="mt-24">
+          <h2
+  id="expertise-title"
+  className="text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black mb-10 sm:mb-14"
+>
+  My Expertise
+</h2>
+          <Expertise />
+          
 
-        <p className="mt-20 max-w-xl font-sans font-light tracking-[0.02em] leading-relaxed text-lg sm:text-xl text-muted-foreground">
-          I’m a full-stack software engineer experienced in TypeScript/React,
-          Python, and C#. I care about clarity, reliability, and thoughtful UX.
-          I apply AI in my own creative projects and bring those capabilities
-          into approachable, user-first workflows.
-        </p>
+<div className="mt-24">
 
-        <Image
-          src="/aurora-hyper.jpg"
-          alt="Marti portrait"
-          width={1200}
-          height={800}
-          className="mt-12 w-full max-w-3xl rounded-lg border"
-          priority={false}
-        />
+<h2
+  id="expertise-title"
+  className="text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black mb-10 sm:mb-14"
+>
+  Professional Experience
+</h2>
+
+        <ExperienceSection resumeHref="/resume.pdf" />
+      </div>
+
+<div className="mt-24">
+<h2
+  id="expertise-title"
+  className="text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black mb-10 sm:mb-14"
+>
+  My Projects
+</h2>
+          <FeaturedProject
+  title="Tryotel App"
+  summary="Deployed scalable travel/event/telemedicine apps using React SPA + PWA. 140+ projects, 50+ clients worldwide. Interested in data analytics and viz."
+  bullets={[
+    'React, Next.js, TypeScript',
+    'Hybrid mobile (Capacitor/Flutter)',
+    'CI/CD, Vercel, Netlify',
+  ]}
+  ctaHref="/projects/tryotel"
+  ctaLabel="View Project"
+  imageSrc="/aurora-hyper.jpg"  
+  imageAlt="Marti portrait"
+  imageAspect="phone"
+  tilt={false}
+/>
+</div>
+       
+
+       
+
+        
+
+          
+        </div>
       </main>
     </section>
   );
 }
+
+
