@@ -5,49 +5,57 @@ import { Monitor, Atom, Smartphone } from 'lucide-react';
 type Card = {
   icon: React.ReactNode;
   titleTop: string;
-  titleBottom: string;
-  underlineClass: string;
+  titleBottom?: string;
+  techs: string[];         // array -> renders as dot-separated chips
   blurb: string;
 };
 
 const CARDS: Card[] = [
   {
     icon: <Monitor className="size-8 sm:size-10" />,
-    titleTop: 'Software',
+    titleTop: 'Backend',
     titleBottom: 'Development',
-    underlineClass: 'decoration-pink-500',
+    techs: ['Python', 'C#', 'REST APIs'],
     blurb:
-      'Experienced in both functional and OOP: Dart, Python, Java, JavaScript, TypeScript.',
+      'API-first services with authentication, testing, and clean, maintainable code.',
   },
   {
     icon: <Atom className="size-8 sm:size-10" />,
-    titleTop: 'Frontend Dev',
-    titleBottom: 'React, NextJS',
-    underlineClass: 'decoration-blue-500',
+    titleTop: 'Frontend',
+    titleBottom: 'Development',
+    techs: ['React', 'Next.js', 'TypeScript'],
     blurb:
-      'Passionate about UI/UX. Over 5 years of development experience in HTML, CSS, JS, React and NextJS.',
+      'Accessible, responsive UI with strong UX fundamentals and component-driven design.',
   },
   {
     icon: <Smartphone className="size-8 sm:size-10" />,
-    titleTop: 'Flutter Dev',
-    titleBottom: 'Android, iOS',
-    underlineClass: 'decoration-orange-500',
+    titleTop: 'iOS',
+    titleBottom: 'Development',
+    techs: ['Swift', 'SwiftUI'],
     blurb:
-      'Hybrid mobile apps and cross-platform solutions using the Flutter framework.',
+      'Native iOS apps with modern SwiftUI patterns, state management, and smooth animations.',
   },
 ];
+
+function DotList({ items }: { items: string[] }) {
+  return (
+    <div className="mt-1 text-lg sm:text-xl font-semibold text-black/90 tracking-wide">
+      {items.join(' · ')}
+    </div>
+  );
+}
 
 function ExpertiseCard({ c }: { c: Card }) {
   return (
     <div className="h-full p-8 sm:p-10 bg-white/70">
-      <div className="flex items-start gap-4">
+      <div className="flex items-center gap-4">
         <div className="opacity-90">{c.icon}</div>
         <div className="text-2xl sm:text-3xl font-extrabold leading-tight text-black">
           <span className="underline decoration-[var(--c-lilac,#a78bfa)] decoration-4 underline-offset-0">
             {c.titleTop}
           </span>
-          <br />
-          {c.titleBottom}
+          {c.titleBottom ? <><br />{c.titleBottom}</> : null}
+          <DotList items={c.techs} />
         </div>
       </div>
 
@@ -59,7 +67,6 @@ function ExpertiseCard({ c }: { c: Card }) {
     </div>
   );
 }
-
 
 function QuoteCard() {
   return (
