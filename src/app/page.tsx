@@ -48,12 +48,12 @@ export default function Home() {
         {/* Everything below the hero gets frame + grid */}
         <PageFrame showGrid inset="p-6 sm:p-8 lg:p-10">
           <div className="mt-24">
-            <h2
+            <h1
               id="expertise-title"
-              className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-10 sm:mb-14"
+              className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-10 sm:mb-14 "
             >
               My Expertise
-            </h2>
+            </h1>
             <Expertise />
           </div>
 

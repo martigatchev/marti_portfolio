@@ -21,7 +21,7 @@ export function PageFrame({
       <div
         className={cn(
           'relative bg-card rounded-none',
-          '[--frame-bw:0px] sm:[--frame-bw:2px] lg:[--frame-bw:2px]',
+          '[--frame-bw:0px] sm:[--frame-bw:2px] lg:[--frame-bw:8px]',
           'sm:border-[var(--c-black)] dark:sm:border-[var(--c-white)]'
         )}
         style={{ borderWidth: 'var(--frame-bw)' }}
