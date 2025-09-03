@@ -216,24 +216,13 @@ export default function ExperienceSection({
 
 /* ============ Example data ============ */
 const DEFAULT_ITEMS: ExperienceItem[] = [
+  
   {
-    role: "Co-Founder",
-    company: "Life Coach Elevate",
-    companyUrl: "https://lifecoachelevate.com",
-    location: "Arizona, USA",
-    start: "2024",
-    end: "Present",
-    summary:
-      "Co-founded Life Coach Elevate, managing end-to-end technical infrastructure (server architecture, CI/CD), and leading web dev/design efforts to optimize scalability and performance.",
-    tags: ["DevOps", "CI/CD", "Kubernetes", "JS/TS", "NextJS"],
-    logoSrc: "/logos/lce.png",
-  },
-  {
-    role: "Senior Lead Software Engineer",
-    company: "Saimon Global Ltd",
-    location: "Remote",
-    start: "2019",
-    end: "2024",
+    role: "Software Engineer • Co-op",
+    company: "CubicFarms Systems",
+    location: "Langley, Canada (Remote)",
+    start: "2022",
+    end: "2022",
     summary:
       "Led a cross-functional team building customer-facing web apps and internal tooling. Owned architecture, reviews, and delivery cadence with a focus on DX and reliability.",
     bullets: [
@@ -245,9 +234,9 @@ const DEFAULT_ITEMS: ExperienceItem[] = [
     logoSrc: "/logos/saimon.png",
   },
   {
-    role: "Web Developer",
-    company: "influenceTHIS Canada",
-    location: "Toronto, Canada (Remote)",
+    role: "Lead Software Developer",
+    company: "Risings Education",
+    location: "Langley, Canada (Remote)",
     start: "2018",
     end: "2019",
     summary:
