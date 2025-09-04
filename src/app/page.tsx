@@ -73,7 +73,7 @@ export default function Home() {
               My Projects
             </h2>
             <FeaturedProject
-              title="Tryotel App"
+              title="Vosynia"
               summary="Deployed scalable travel/event/telemedicine apps using React SPA + PWA. 140+ projects, 50+ clients worldwide. Interested in data analytics and viz."
               bullets={['React, Next.js, TypeScript', 'Hybrid mobile (Capacitor/Flutter)', 'CI/CD, Vercel, Netlify']}
               ctaHref="/projects/tryotel"

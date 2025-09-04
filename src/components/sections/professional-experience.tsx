@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus, Minus, MapPin, ExternalLink, CalendarDays } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BlockButton } from "../ui/block-button";
 
 /* ============ Types ============ */
 export type ExperienceItem = {
@@ -201,13 +202,10 @@ export default function ExperienceSection({
 
       {resumeHref && (
         <div className="mt-8 flex justify-center">
-          <Link
-            href={resumeHref}
-            target="_blank"
-            className="rounded-lg px-5 py-2.5 text-sm font-semibold bg-[var(--c-lilac,#a78bfa)] text-black hover:opacity-90 transition"
-          >
-            Download Resume
-          </Link>
+          <BlockButton href="/resume" cornerRadius="0.8rem">
+  Download Resume.
+</BlockButton>
+
         </div>
       )}
     </section>

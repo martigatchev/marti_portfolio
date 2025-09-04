@@ -25,6 +25,8 @@
   --font-sub: var(--font-inter);
   --tracking-sub: 0.05em;   /* light letter-spacing */
   --leading-sub: 1.65;     
+
+
 }
 
 /* One class that applies the look */
@@ -142,6 +144,13 @@
     background-image:
       linear-gradient(to right, rgba(255, 255, 255, var(--grid-alpha)) var(--grid-line), transparent var(--grid-line)),
       linear-gradient(to bottom, rgba(255, 255, 255, var(--grid-alpha)) var(--grid-line), transparent var(--grid-line));
+  }
+
+  .bg-lilac\/70 {
+    background-color: color-mix(in oklch, var(--c-lilac, #CEAED5) 70%, transparent);
+  }
+  .bg-lilac\/60 {
+    background-color: color-mix(in oklch, var(--c-lilac, #CEAED5) 60%, transparent);
   }
 }
 
