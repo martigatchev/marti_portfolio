@@ -28,7 +28,6 @@ export type ExperienceProps = {
   className?: string;
   accordion?: boolean;
   defaultOpenIndex?: number | null;
-  /** Toggle rounded corners on the header "buttons" */
 };
 
 type CSSVars = { [key: `--${string}`]: string };
@@ -262,7 +261,7 @@ const DEFAULT_ITEMS: ExperienceItem[] = [
       "Cut build times 45% with incremental bundling and caching",
       "Introduced typed API clients and contract tests",
     ],
-    tags: ["C#", ".NET", "Docker", "Azure DevOps", "Git"],
+    tags: ["C#", ".NET", "Docker", "Azure DevOps", "Rest APIs", "Git"],
     logoSrc: "/CubicFarms_Logo.jpg",
   },
   {

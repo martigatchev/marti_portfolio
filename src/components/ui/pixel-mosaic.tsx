@@ -51,7 +51,7 @@ export default function PixelMosaic({
   paused = false,
 
   // color controls
-  palette = ['#000000ff', '#b48cff', '#a78bfa', '#ff9acb', '#ff6d98'],
+  palette = ['#ffffffff', '#b48cff', '#a78bfa', '#ff9acb', '#ff6d98'],
   paletteMix = 0.35,
   toneGamma = 1.0,
   tint = '#c7b3ff',
