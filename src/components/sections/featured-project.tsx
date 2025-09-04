@@ -5,6 +5,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { BlockButton } from '../ui/block-button';
 
 type Props = {
   eyebrow?: string;
@@ -55,18 +56,18 @@ export default function FeaturedProject({
         {/* LEFT: description panel */}
         <div className="bg-white/70 h-full p-8 sm:p-12 flex flex-col gap-8">
           <div className="grid gap-4">
-            <p className="uppercase tracking-widest text-xs font-medium text-black/70">
+            <p className="text-sub uppercase tracking-widest text-xs font-medium text-black/70">
               {eyebrow}
             </p>
-            <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight text-[var(--c-fg,black)]">
+            <h3 className=" font-display text-3xl sm:text-4xl font-extrabold leading-tight text-[var(--c-fg,black)]">
               {title}
             </h3>
-            <p className="text-base sm:text-lg leading-relaxed text-black/85">
+            <p className="text-sub sm:text-lg leading-relaxed text-black/85">
               {summary}
             </p>
 
             {bullets.length > 0 && (
-              <ul className="mt-2 grid gap-2 text-black/90 list-disc pl-5">
+              <ul className="text-sub mt-2 grid gap-2 text-black/90 list-disc pl-5">
                 {bullets.map((b, i) => (
                   <li key={i}>{b}</li>
                 ))}
@@ -82,12 +83,7 @@ export default function FeaturedProject({
             >
               {ctaLabel} <ArrowUpRight className="size-4" />
             </Link>
-            <Link
-              href="/projects"
-              className="text-sm text-black/80 hover:text-black underline underline-offset-4"
-            >
-              View all projects
-            </Link>
+            
           </div>
         </div>
 
@@ -109,6 +105,11 @@ export default function FeaturedProject({
             </div>
           </div>
         </div>
+      </div>
+      <div className="mt-12 mb-2 flex justify-center">
+        <BlockButton href="/projects" cornerRadius="0.5rem">
+        View all projects.
+      </BlockButton>
       </div>
     </section>
   );

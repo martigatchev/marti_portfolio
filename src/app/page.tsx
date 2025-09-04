@@ -38,7 +38,7 @@ export default function Home() {
                 <p className="font-display uppercase text-black/90
               text-[clamp(0.9rem,2.2vw,2.5rem)]
               tracking-[clamp(0.14em,0.6vw,0.28em)]
-              drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">  SOFTWARE ENGINEER, FRONT-END, & APP DEVELOPER
+              drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">  SOFTWARE ENGINEER • FRONT-END • APP DEVELOPER
                 </p>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function Home() {
             </h2>
             <FeaturedProject
               title="Vosynia"
-              summary="Deployed scalable travel/event/telemedicine apps using React SPA + PWA. 140+ projects, 50+ clients worldwide. Interested in data analytics and viz."
+              summary="A living worldbook for Vosynia—an atlas of provinces, leaders, cultures, and creatures—built to onboard new players fast and keep veterans immersed between sessions."
               bullets={['React, Next.js, TypeScript', 'Hybrid mobile (Capacitor/Flutter)', 'CI/CD, Vercel, Netlify']}
               ctaHref="/projects/tryotel"
               ctaLabel="View Project"
