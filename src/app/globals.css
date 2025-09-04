@@ -23,7 +23,7 @@
 
   /* Alias for this subhead/body style */
   --font-sub: var(--font-inter);
-  --tracking-sub: 0.10em;   /* light letter-spacing */
+  --tracking-sub: 0.05em;   /* light letter-spacing */
   --leading-sub: 1.65;     
 }
 
