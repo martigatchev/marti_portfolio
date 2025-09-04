@@ -107,7 +107,7 @@ export default function FeaturedProject({
         </div>
       </div>
       <div className="mt-12 mb-2 flex justify-center">
-        <BlockButton href="/projects" cornerRadius="0.5rem">
+        <BlockButton href="/projects" cornerRadius="0.0rem">
         View all projects.
       </BlockButton>
       </div>

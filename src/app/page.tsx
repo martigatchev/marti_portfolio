@@ -15,7 +15,7 @@ export default function Home() {
             <PixelMosaic
               className="w-full h-full"
               pixelSize={1}
-              speed={0.2}
+              speed={0.4}
               noiseScale={1.5}
               contrast={1.5}
               palette={['#ffffffff', '#b48cff', '#a78bfa', '#ff9acb', '#ff6d98']}
@@ -74,7 +74,7 @@ export default function Home() {
             </h2>
             <FeaturedProject
               title="Vosynia"
-              summary="A living worldbook for Vosynia—an atlas of provinces, leaders, cultures, and creatures—built to onboard new players fast and keep veterans immersed between sessions."
+              summary="A living worldbook for the TTRPG setting of Vosynia—an atlas of provinces, leaders, cultures, and creatures; built to onboard new players fast and keep veterans immersed between sessions."
               bullets={['React, Next.js, TypeScript', 'Hybrid mobile (Capacitor/Flutter)', 'CI/CD, Vercel, Netlify']}
               ctaHref="/projects/tryotel"
               ctaLabel="View Project"

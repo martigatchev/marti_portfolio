@@ -35,7 +35,7 @@ const CARDS: Card[] = [
   },
   {
     icon: <Smartphone className="size-8 sm:size-10" />,
-    titleTop: 'iOS',
+    titleTop: 'App',
     titleBottom: 'Development',
     techs: ['Swift', 'SwiftUI'],
     blurb:
@@ -169,8 +169,8 @@ export default function Expertise() {
 
       {/* CTA below grid */}
       <div className="mt-20 mb-2 flex justify-center">
-  <BlockButton href="/resume" cornerRadius="0.0rem">
-  Download Resume.
+  <BlockButton href="/about" cornerRadius="0.0rem">
+  Learn more about me.
 </BlockButton>
 </div>
     </section>
