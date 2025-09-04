@@ -18,7 +18,7 @@ export default function Home() {
               speed={0.2}
               noiseScale={1.5}
               contrast={1.5}
-              palette={['#0b0b0c', '#b48cff', '#a78bfa', '#ff9acb', '#ff6d98']}
+              palette={['#ffffffff', '#b48cff', '#a78bfa', '#ff9acb', '#ff6d98']}
               paletteMix={0.45}
               toneGamma={1.1}
               tint="var(--c-lilac)"
@@ -31,11 +31,11 @@ export default function Home() {
             {/* Overlay content */}
             <div className="pointer-events-none absolute inset-0 z-10 grid place-content-center px-4 text-center">
               <div className="flex flex-col items-center gap-3">
-                <h1 className="font-display uppercase text-white leading-none tracking-tightest
+                <h1 className="font-display uppercase text-black leading-none tracking-tightest
                text-[clamp(3.5rem,8vw,12rem)]
-               drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">  MARTI GATCHEV
+               drop-shadow-[0_2px_16px_rgba(255,255,255,0.00)]">  MARTI GATCHEV
                 </h1>
-                <p className="font-display uppercase text-white/90
+                <p className="font-display uppercase text-black/90
               text-[clamp(0.9rem,2.2vw,2.5rem)]
               tracking-[clamp(0.14em,0.6vw,0.28em)]
               drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">  SOFTWARE ENGINEER, FRONT-END, & APP DEVELOPER

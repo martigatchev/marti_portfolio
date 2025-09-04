@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased font-sans bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
-            <Header />
+            <Header borders={true} />
             {/* No global PageFrame here */}
             <main className="flex-1 flex">{children}</main>
             <Footer />
