@@ -19,7 +19,7 @@ export default function StickyFooter({ children }: StickyFooterProps) {
     <div
       className="
       relative w-full
-      h-[520px] sm:h-[560px] md:h-[640px] lg:h-[420px]
+      h-[360px] sm:h-[360px] md:h-[360px] lg:h-[320px] xl:h-[360px]
       [clip-path:polygon(0%_0,100%_0,100%_100%,0_100%)]
     "
     >
@@ -62,105 +62,92 @@ FooterSurface.displayName = "FooterSurface";
 /** Simple default content so it looks good out-of-the-box. Replace freely. */
 function DefaultFooterContent() {
   return (
-    <div className="h-full grid gap-10 md:grid-cols-3">
-      {/* 1) Left: MARTI */}
-      <div className="h-full flex items-end overflow-hidden">
-        <span
-          className="
-            font-display uppercase tracking-tightest block leading-none
-            text-white 
-            text-[22vw] md:text-[10vw] lg:text-[10vw]
-            
-          "
-        >
-          MARTI
-        </span>
+    <div className="h-full">
+      {/* MD & below (new layout) */}
+      <div className="relative h-full flex flex-col lg:hidden">
+        {/* lilac square top-left */}
+        <div className="absolute top-4 left-4 size-16 md:size-20 bg-[#CEAED5] border border-black/40" />
+
+        {/* centered tagline + links */}
+        <div className="pt-8 md:pt-10 text-center space-y-2">
+          <p className="text-white/70">
+            Available for junior software engineering roles.
+          </p>
+          <div
+            className="
+              font-display uppercase tracking-tightest leading-none text-white
+              text-4xl sm:text-5xl md:text-6xl
+            "
+          >
+            <Link href="https://github.com/" className="hover:opacity-90">GITHUB</Link>
+            <span className="px-3">•</span>
+            <Link href="https://www.linkedin.com/" className="hover:opacity-90">LINKEDIN</Link>
+          </div>
+        </div>
+
+        {/* bottom: big name + © aligned on baseline */}
+        <div className="mt-auto flex items-baseline justify-between overflow-hidden">
+          <span
+            className="
+              font-display uppercase tracking-tightest leading-none whitespace-nowrap
+              text-white
+              text-6xl md:text-10xl translate-y-[0.04em]
+            "
+          >
+            MARTI GATCHEV
+          </span>
+          <span className="ml-3 text-xs text-white/60">
+            © {new Date().getFullYear()}
+          </span>
+        </div>
       </div>
 
-      {/* 2) Middle: headline + blurb + CTA (vertically centered, left-aligned) */}
-<div className="h-full flex flex-col gap-4 items-start md:justify-center">
-  <h2 className="font-display text-2xl md:text-3xl tracking-tight">
-    Let’s build something cool.
-  </h2>
-  <p className="text-sm/6 text-white/70 max-w-prose">
-    Portfolio, experiments, and apps by Marti Gatchev. Available for
-    junior software engineering roles.
-  </p>
+      {/* LG & up (previous desktop layout) */}
+      <div className="hidden lg:grid h-full lg:grid-cols-[3fr_1fr]">
+        {/* LEFT: big name + © aligned on same baseline */}
+        <div className="h-full flex items-end overflow-hidden">
+          <div className="flex items-baseline gap-2 translate-y-[0.04em]">
+            <span
+              className="
+                font-display uppercase tracking-tightest leading-none whitespace-nowrap
+                text-white
+                lg:text-9xl xl:text-10xl
+                
+              "
+            >
+              MARTI GATCHEV
+            </span>
+            <span className="text-xs text-white/60">© {new Date().getFullYear()}</span>
+          </div>
+        </div>
 
+        {/* RIGHT: square top-right + bottom-right links */}
+        <div className="relative h-full">
+          <div className="absolute top-4 right-0 size-20 xl:size-24 bg-[#CEAED5] border border-black/40" />
+          <div className="absolute right-4 bottom-4 text-right space-y-1">
+            <p className="text-white/70 leading-tight lg:text-sm xl:text-sm">
+              Available for junior software engineering roles.
+            </p>
+            <div className="font-display uppercase tracking-tightest leading-none text-white text-6xl xl:text-7xl">
   <Link
-    href="/contact"
-    className="inline-flex items-center gap-2 rounded-lg border-2 border-black bg-[var(--c-lilac,#a78bfa)] px-4 py-2 font-semibold text-black transition hover:opacity-90"
+    href="https://github.com/"
+    className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]"
   >
-    Get in touch
-    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
-      <path d="M5 12h11m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" strokeWidth="2" />
-    </svg>
+    GITHUB
+  </Link>
+  <span className="px-3">•</span>
+  <Link
+    href="https://www.linkedin.com/"
+    className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]"
+  >
+    LINKEDIN
   </Link>
 </div>
 
-      {/* 3) Right: Site / Elsewhere + copyright at bottom-right */}
-      <div className="h-full flex flex-col">
-        <nav className="grid grid-cols-2 gap-6 text-sm">
-          <div>
-            <h3 className="mb-2 font-semibold tracking-wide text-white/80">
-              Site
-            </h3>
-            <ul className="space-y-1">
-              <li>
-                <Link className="hover:underline" href="/">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:underline" href="/projects">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:underline" href="/about">
-                  About
-                </Link>
-              </li>
-            </ul>
           </div>
-          <div>
-            <h3 className="mb-2 font-semibold tracking-wide text-white/80">
-              Elsewhere
-            </h3>
-            <ul className="space-y-1">
-              <li>
-                <a
-                  className="hover:underline"
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:underline"
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a className="hover:underline" href="mailto:hello@example.com">
-                  Email
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <div className="mt-auto self-end text-xs text-white/60">
-          © {new Date().getFullYear()} Marti Gatchev. All rights reserved.
         </div>
       </div>
     </div>
   );
 }
+

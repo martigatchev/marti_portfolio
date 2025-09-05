@@ -20,6 +20,15 @@
   --text-7xl: 4.5rem;  /* 72px */
   --text-8xl: 6rem;    /* 96px */
   --text-9xl: 8rem;    /* 128px */
+  --text-10xl: 10rem;  /* 160px */
+  --text-11xl: 12rem;  /* 192px */
+  --text-12xl: 14rem;  /* 224px */
+  --text-13xl: 16rem;  /* 256px */
+  --text-14xl: 18rem;  /* 288px */
+  --text-15xl: 20rem;  /* 320px */
+  --text-16xl: 24rem;  /* 384px */
+  --text-17xl: 28rem;  /* 448px */
+  --text-18xl: 32rem;  /* 512px */
 
   /* Alias for this subhead/body style */
   --font-sub: var(--font-inter);
