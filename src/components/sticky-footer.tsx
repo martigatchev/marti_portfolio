@@ -67,8 +67,8 @@ function DefaultFooterContent() {
       <div className="h-full flex items-end overflow-hidden">
         <span
           className="
-            font-display uppercase tracking-tightest leading-none
-            text-white
+            font-display uppercase tracking-tightest block leading-none
+            text-white 
             text-[22vw] md:text-[10vw] lg:text-[10vw]
             
           "
@@ -77,31 +77,26 @@ function DefaultFooterContent() {
         </span>
       </div>
 
-      {/* 2) Middle: headline + blurb + CTA */}
-      <div className="space-y-4 self-start">
-        <h2 className="font-display text-2xl md:text-3xl tracking-tight">
-          Let’s build something cool.
-        </h2>
-        <p className="text-sm/6 text-white/70 max-w-prose">
-          Portfolio, experiments, and apps by Marti Gatchev. Available for
-          junior software engineering roles.
-        </p>
+      {/* 2) Middle: headline + blurb + CTA (vertically centered, left-aligned) */}
+<div className="h-full flex flex-col gap-4 items-start md:justify-center">
+  <h2 className="font-display text-2xl md:text-3xl tracking-tight">
+    Let’s build something cool.
+  </h2>
+  <p className="text-sm/6 text-white/70 max-w-prose">
+    Portfolio, experiments, and apps by Marti Gatchev. Available for
+    junior software engineering roles.
+  </p>
 
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 rounded-lg border-2 border-black bg-[var(--c-lilac,#a78bfa)] px-4 py-2 font-semibold text-black transition hover:opacity-90"
-        >
-          Get in touch
-          <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
-            <path
-              d="M5 12h11m0 0-4-4m4 4-4 4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-          </svg>
-        </Link>
-      </div>
+  <Link
+    href="/contact"
+    className="inline-flex items-center gap-2 rounded-lg border-2 border-black bg-[var(--c-lilac,#a78bfa)] px-4 py-2 font-semibold text-black transition hover:opacity-90"
+  >
+    Get in touch
+    <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
+      <path d="M5 12h11m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  </Link>
+</div>
 
       {/* 3) Right: Site / Elsewhere + copyright at bottom-right */}
       <div className="h-full flex flex-col">
