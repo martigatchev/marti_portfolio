@@ -168,7 +168,7 @@ export default function Expertise() {
       </div>
 
       {/* CTA below grid */}
-      <div className="mt-20 mb-2 flex justify-center">
+      <div className="mt-12 mb-2 flex justify-center">
   <BlockButton href="/about" cornerRadius="0.0rem">
   Learn more about me.
 </BlockButton>

@@ -7,6 +7,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { inter, display } from "./fonts";
 import { PageFrame } from "@/components/page-frame";
+import StickyFooter from "@/components/sticky-footer";
 
 export const metadata: Metadata = {
   title: "Marti Gatchev – Portfolio",
@@ -22,7 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header borders={true} />
             {/* No global PageFrame here */}
             <main className="flex-1 flex">{children}</main>
-            <Footer />
+            <StickyFooter />
+            {/* <StickyFooter height={400} /> */}
           </div>
         </ThemeProvider>
       </body>

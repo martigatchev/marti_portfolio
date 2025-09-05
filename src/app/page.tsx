@@ -67,7 +67,7 @@ export default function Home() {
           <div className="mt-24">
             <h1
               id="expertise-title"
-              className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-10 sm:mb-14 "
+              className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-12 sm:mb-12 "
             >
               My Expertise
             </h1>
@@ -75,14 +75,14 @@ export default function Home() {
           </div>
 
           <div className="mt-24">
-            <h2 className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-10 sm:mb-14">
+            <h2 className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-12 sm:mb-12">
               Professional Experience
             </h2>
             <ExperienceSection resumeHref="/resume.pdf" />
           </div>
 
           <div className="mt-24">
-            <h2 className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-10 sm:mb-14">
+            <h2 className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-12 sm:mb-12">
               My Projects
             </h2>
             <FeaturedProject
