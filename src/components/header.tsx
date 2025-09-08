@@ -12,13 +12,9 @@ export function Header({ borders = false }: { borders?: boolean }) {
 
   // Core button styling (no borders on items)
   const navBox =
-    "relative z-0 block w-full h-full grid place-items-center " +
-    "font-display uppercase leading-none font-bold " +
-    "text-xl sm:text-6xl " +
-    "bg-[var(--c-white)] text-[var(--c-black)] " +
-    "sm:hover:bg-[var(--c-black)] sm:hover:text-[var(--c-white)] " +
-    "transition-colors duration-500 " +
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-red)] focus-visible:ring-offset-2";
+    "relative z-0 block w-full h-full grid place-items-center font-display uppercase leading-none font-bold " +
+    "sm:text-3xl md:text-5xl xl:text-6xl 2xl:text-6xl " +
+    "bg-[var(--c-white)] text-[var(--c-black)] sm:hover:bg-[var(--c-black)] sm:hover:text-[var(--c-white)] transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--c-red)] focus-visible:ring-offset-2";
 
   // Desktop vertical separator: right side only, not on last item
   const desktopSep =
@@ -29,7 +25,8 @@ export function Header({ borders = false }: { borders?: boolean }) {
   const STAGGER = 90;
   const ITEM_BASE =
     "origin-top overflow-hidden transform-gpu will-change-transform will-change-opacity transition-[opacity,transform]";
-  const ITEM_OPEN = "opacity-100 translate-y-0 scale-y-100 duration-500 ease-out";
+  const ITEM_OPEN =
+    "opacity-100 translate-y-0 scale-y-100 duration-500 ease-out";
   const ITEM_INIT = "opacity-0 -translate-y-4 scale-y-95";
 
   const LINKS = [
@@ -72,7 +69,9 @@ export function Header({ borders = false }: { borders?: boolean }) {
     <header className={headerClass}>
       {/* ===== MOBILE ===== */}
       <div className={`sm:hidden bg-background ${mobileWrapBorders}`}>
-        <div className={`h-16 flex items-center justify-between px-4 ${mobileTopBarBorder}`}>
+        <div
+          className={`h-16 flex items-center justify-between px-4 ${mobileTopBarBorder}`}
+        >
           <div className="text-lg font-bold">martig.dev</div>
           <button
             type="button"
@@ -102,11 +101,20 @@ export function Header({ borders = false }: { borders?: boolean }) {
               className={`flex flex-col ${mobileListBottomBorder} divide-y-[var(--nav-bw)] divide-[var(--c-black)]`}
             >
               {LINKS.map((link, i) => {
-                const itemClasses = [ITEM_BASE, mobileOpen ? ITEM_OPEN : ITEM_INIT].join(" ");
-                const delayStyle = mobileOpen ? { transitionDelay: `${i * STAGGER}ms` } : undefined;
+                const itemClasses = [
+                  ITEM_BASE,
+                  mobileOpen ? ITEM_OPEN : ITEM_INIT,
+                ].join(" ");
+                const delayStyle = mobileOpen
+                  ? { transitionDelay: `${i * STAGGER}ms` }
+                  : undefined;
 
                 return (
-                  <li key={link.href} className={itemClasses} style={delayStyle}>
+                  <li
+                    key={link.href}
+                    className={itemClasses}
+                    style={delayStyle}
+                  >
                     <NavLink
                       href={link.href}
                       className={`${navBox} px-4 py-3`}
