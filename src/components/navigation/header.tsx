@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { NavLink } from "@/components/nav-link";
+import { NavLink } from "@/components/navigation/nav-link";
 
 // Toggle: top/bottom chrome on or off
 export function Header({ borders = false }: { borders?: boolean }) {

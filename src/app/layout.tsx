@@ -3,11 +3,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { Header } from "@/components/navigation/header";
 import { inter, display } from "./fonts";
 import { PageFrame } from "@/components/page-frame";
-import StickyFooter from "@/components/sticky-footer";
+import StickyFooter from "@/components/navigation/sticky-footer";
+import MultiFollowCursor from "@/components/ui/multi-cursor";
 
 export const metadata: Metadata = {
   title: "Marti Gatchev – Portfolio",
@@ -23,6 +23,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header borders={true} />
             {/* No global PageFrame here */}
             <main className="flex-1 flex">{children}</main>
+            
+{/* <MultiFollowCursor
+  hideSystemCursor
+  blendMode="normal"
+  dotColor="#000000ff"
+  ring1Color="#f6d6faff"        // inner ring
+  ring2Color="#e3b2f4ff"        // middle ring
+  ring3Color="#af71cfff"        // outer ring
+  ring2Enabled={false}
+  ring3Enabled={false}
+/> */}
             <StickyFooter />
             {/* <StickyFooter height={400} /> */}
           </div>

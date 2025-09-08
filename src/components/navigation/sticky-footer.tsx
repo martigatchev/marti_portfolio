@@ -145,14 +145,14 @@ function DefaultFooterContent() {
             </p>
             <div className="font-display uppercase tracking-tightest leading-none text-white text-6xl xl:text-7xl">
   <Link
-    href="https://github.com/"
+    href="https://github.com/martigatchev"
     className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]"
   >
     GITHUB
   </Link>
   <span className="px-3">•</span>
   <Link
-    href="https://www.linkedin.com/"
+    href="https://www.linkedin.com/in/mgatchev/"
     className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]"
   >
     LINKEDIN

@@ -106,7 +106,7 @@ function QuoteCard() {
         <p className="font-display text-2xl sm:text-3xl font-extrabold leading-snug text-black">
           Science is magic that works.
         </p>
-        <footer className="mt-3 text-sub text-black/70 text-sm sm:text-base">
+        <footer className="mt-3 text-sub text-black/70  text-sub text-md sm:text-base text-muted-foreground">
           — Kurt Vonnegut, &quot;Cat&apos;s Cradle&quot;
         </footer>
       </blockquote>
