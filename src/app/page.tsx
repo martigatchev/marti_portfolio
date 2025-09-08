@@ -89,8 +89,9 @@ export default function Home() {
               title="Vosynia"
               summary="A living worldbook for the TTRPG setting of Vosynia—an atlas of provinces, leaders, cultures, and creatures; built to onboard new players fast and keep veterans immersed between sessions."
               bullets={[
-                "React, TypeScript, ChakraUI, Framer",
-                "Python, OpenAI API, Selenium, Midjourney",
+                "React, TypeScript, ChakraUI",
+                "Python, OpenAI API",
+                "Selenium, Midjourney",
                 "AWS",
               ]}
               ctaHref="/projects/vosynia"

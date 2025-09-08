@@ -19,7 +19,7 @@ export default function StickyFooter({ children }: StickyFooterProps) {
     <div
       className="
       relative w-full
-      h-[360px] sm:h-[360px] md:h-[360px] lg:h-[320px] xl:h-[360px]
+      h-[360px] max-sm:h-[240px] sm:h-[320px] md:h-[280px] lg:h-[320px] xl:h-[360px]
       [clip-path:polygon(0%_0,100%_0,100%_100%,0_100%)]
     "
     >
@@ -63,44 +63,59 @@ FooterSurface.displayName = "FooterSurface";
 function DefaultFooterContent() {
   return (
     <div className="h-full">
-      {/* MD & below (new layout) */}
-      <div className="relative h-full flex flex-col lg:hidden">
-        {/* lilac square top-left */}
-        <div className="absolute top-4 left-4 size-16 md:size-20 bg-[#CEAED5] border border-black/40" />
+     {/* MD & below (right-aligned, square + links aligned) */}
+<div className="relative h-full flex flex-col lg:hidden">
+  <div className="grid grid-cols-[auto_1fr] items-end md:items-center gap-x-4 pt-4">
+    {/* square */}
+    <div className="relative h-14 w-14 sm:h-20 sm:w-20 md:h-20 md:w-20">
+      <div className="absolute inset-0 bg-[#CEAED5] border border-black/40" />
+    </div>
 
-        {/* centered tagline + links */}
-        <div className="pt-8 md:pt-10 text-center space-y-2">
-          <p className="text-white/70">
-            Available for junior software engineering roles.
-          </p>
-          <div
-            className="
-              font-display uppercase tracking-tightest leading-none text-white
-              text-4xl sm:text-5xl md:text-6xl
-            "
-          >
-            <Link href="https://github.com/" className="hover:opacity-90">GITHUB</Link>
-            <span className="px-3">•</span>
-            <Link href="https://www.linkedin.com/" className="hover:opacity-90">LINKEDIN</Link>
-          </div>
-        </div>
+    {/* right side */}
+    <div className="w-full flex flex-col items-end text-right">
+  {/* tagline: only ≥ sm */}
+  {/* <p className="hidden md:block text-sub text-white/70 text-sm">
+    Available for junior software engineering roles.
+  </p> */}
 
-        {/* bottom: big name + © aligned on baseline */}
-        <div className="mt-auto flex items-baseline justify-between overflow-hidden">
-          <span
-            className="
-              font-display uppercase tracking-tightest leading-none whitespace-nowrap
-              text-white
-              text-6xl md:text-10xl translate-y-[0.04em]
-            "
-          >
-            MARTI GATCHEV
-          </span>
-          <span className="ml-3 text-xs text-white/60">
-            © {new Date().getFullYear()}
-          </span>
-        </div>
-      </div>
+  {/* links row: match square height + bottom-align */}
+  <div className="h-16 md:h-20 flex items-end justify-end self-end ">
+    <div
+      className="
+        font-display uppercase tracking-tightest text-white
+        text-[3rem] sm:text-[4rem] md:text-[5rem]   /* 64px = h-16, 80px = md:h-20 */
+        leading-[0.85]               /* tighten line box so bottom sits flush */
+        mr-[-1px]                    /* tiny visual nudge to align with the V */
+      "
+    >
+      <Link href="https://github.com/" className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]">
+        GITHUB
+      </Link>
+      <span className="px-3">•</span>
+      <Link href="https://www.linkedin.com/" className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]">
+        LINKEDIN
+      </Link>
+    </div>
+  </div>
+</div>
+  </div>
+
+  {/* bottom name unchanged */}
+  <div className="mt-auto">
+    <div className="relative ml-auto w-max leading-none">
+      <span className="block text-right font-display uppercase tracking-tightest leading-none whitespace-nowrap text-white text-[22vw] md:text-[14vw]">
+        MARTI GATCHEV
+      </span>
+      <span className="absolute right-0 bottom-[calc(100%+0.25rem)] text-xs text-white/60">
+        © {new Date().getFullYear()}
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+
 
       {/* LG & up (previous desktop layout) */}
       <div className="hidden lg:grid h-full lg:grid-cols-[3fr_1fr]">
@@ -117,7 +132,7 @@ function DefaultFooterContent() {
             >
               MARTI GATCHEV
             </span>
-            <span className="text-xs text-white/60">© {new Date().getFullYear()}</span>
+            <span className="text-xs text-white/60 text-sub">© {new Date().getFullYear()}</span>
           </div>
         </div>
 
@@ -125,7 +140,7 @@ function DefaultFooterContent() {
         <div className="relative h-full">
           <div className="absolute top-4 right-0 size-20 xl:size-24 bg-[#CEAED5] border border-black/40" />
           <div className="absolute right-4 bottom-4 text-right space-y-1">
-            <p className="text-white/70 leading-tight lg:text-sm xl:text-sm">
+            <p className="text-white/70 leading-tight text-sub lg:text-xs xl:text-sm">
               Available for junior software engineering roles.
             </p>
             <div className="font-display uppercase tracking-tightest leading-none text-white text-6xl xl:text-7xl">
