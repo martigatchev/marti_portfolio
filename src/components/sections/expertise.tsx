@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { Monitor, Atom, Smartphone } from 'lucide-react';
 import { BlockButton } from '../ui/block-button';
 

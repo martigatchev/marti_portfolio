@@ -5,9 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/navigation/header";
 import { inter, display } from "./fonts";
-import { PageFrame } from "@/components/page-frame";
 import StickyFooter from "@/components/navigation/sticky-footer";
-import MultiFollowCursor from "@/components/ui/multi-cursor";
 
 export const metadata: Metadata = {
   title: "Marti Gatchev – Portfolio",

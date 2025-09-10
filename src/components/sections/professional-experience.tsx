@@ -189,9 +189,7 @@ function ExperienceRow({
 
 /* ============ Main Section ============ */
 export default function ExperienceSection({
-  title = "Professional Experience",
   items = DEFAULT_ITEMS,
-  resumeHref = "/resume.pdf",
   className = "",
   accordion = true,
   defaultOpenIndex = null,

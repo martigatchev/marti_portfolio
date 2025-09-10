@@ -1,11 +1,9 @@
 // app/page.tsx
-import PixelMosaic from "@/components/ui/pixel-mosaic";
 import Expertise from "@/components/sections/expertise";
 import FeaturedProject from "@/components/sections/featured-project";
 import ExperienceSection from "@/components/sections/professional-experience";
 import { PageFrame } from "@/components/page-frame";
-import ChevronScrollArrowFM from "@/components/ui/chevron-scroll-arrow";
-import { AnimateOnView, AoVChild } from "@/components/ui/animate-on-view";
+import { AnimateOnView } from "@/components/ui/animate-on-view";
 import Hero from "@/components/sections/hero";
 
 export default function Home() {

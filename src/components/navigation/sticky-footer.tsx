@@ -35,20 +35,17 @@ export default function StickyFooter({ children }: StickyFooterProps) {
 
 const FooterSurface = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div">
+  React.ComponentPropsWithoutRef<"div">
 >(({ className = "", children, ...rest }, ref) => {
   return (
     <footer
+      ref={ref}
+      {...rest}
       className={[
-        // layout
         "h-full w-full box-border",
-        // colors
         "bg-[var(--c-black,#0a0a0a)] text-[var(--c-white,#ffffff)]",
-        // optional: keep the hairline top border; remove if you want zero line
         "border-t border-black/50",
-        // spacing: NO top padding; only side padding; bottom uses safe-area only
         "px-4 pt-0 pb-0",
-        // no debug ring / glow
         "ring-0 shadow-none",
         className,
       ].join(" ")}
@@ -88,11 +85,11 @@ function DefaultFooterContent() {
         mr-[-1px]                    /* tiny visual nudge to align with the V */
       "
     >
-      <Link href="https://github.com/" className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]">
+      <Link href="https://github.com/martigatchev" className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]">
         GITHUB
       </Link>
       <span className="px-3">•</span>
-      <Link href="https://www.linkedin.com/" className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]">
+      <Link href="https://www.linkedin.com/in/mgatchev/" className="transition-colors hover:text-[#CEAED5] focus-visible:text-[#CEAED5]">
         LINKEDIN
       </Link>
     </div>
@@ -112,10 +109,6 @@ function DefaultFooterContent() {
     </div>
   </div>
 </div>
-
-
-
-
 
       {/* LG & up (previous desktop layout) */}
       <div className="hidden lg:grid h-full lg:grid-cols-[3fr_1fr]">

@@ -1,5 +1,4 @@
 // components/sections/featured-project.tsx
-
 "use client";
 
 import Image from "next/image";
@@ -16,22 +15,10 @@ type Props = {
   ctaLabel?: string;
   imageSrc: string;
   imageAlt: string;
-  imageAspect?: "video" | "phone" | "square";
+  imageAspect?: "video" | "phone" | "square"; // kept for future use
   tilt?: boolean;
   className?: string;
 };
-
-// Desktop/tablet aspect helper (mobile is always landscape 16:9)
-const mdAspectClass = (a?: Props["imageAspect"]) =>
-  a === "phone"
-    ? "lg:aspect-[9/16]"
-    : a === "square"
-    ? "lg:aspect-square"
-    : "lg:aspect-video";
-
-// Mobile-first aspect (landscape) + lg override
-const responsiveAspect = (a?: Props["imageAspect"]) =>
-  `aspect-video ${mdAspectClass(a)}`;
 
 export default function FeaturedProject({
   eyebrow = "Featured Project",
@@ -42,10 +29,12 @@ export default function FeaturedProject({
   ctaLabel = "View Project",
   imageSrc,
   imageAlt,
-  imageAspect = "phone",
+  imageAspect = "phone", // keep API
   tilt = false,
   className = "",
 }: Props) {
+  void imageAspect; // no-op use to satisfy eslint (keeps behavior identical)
+
   return (
     <section id="projects" className={`mx-auto max-w-7xl px-6 ${className}`}>
       <div
@@ -61,6 +50,7 @@ export default function FeaturedProject({
         <div className="order-1 lg:order-2 bg-white/70 p-6 sm:p-10 lg:h-full lg:flex">
           <div
             className={
+              // original classes preserved
               "relative w-full aspect-video lg:aspect-auto lg:h-full max-h-[70vh] lg:max-h-none mx-auto"
             }
           >
@@ -103,17 +93,16 @@ export default function FeaturedProject({
           </div>
 
           <div className="flex items-center gap-4">
-  <Link
-    href={ctaHref}
-    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
-               border-2 border-black text-black
-               bg-[#fbefffff] hover:bg-[#CEAED5]
-               transition-colors"
-  >
-    {ctaLabel} <ArrowUpRight className="size-4" />
-  </Link>
-</div>
-
+            <Link
+              href={ctaHref}
+              className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
+                         border-2 border-black text-black
+                         bg-[#fbefffff] hover:bg-[#CEAED5]
+                         transition-colors"
+            >
+              {ctaLabel} <ArrowUpRight className="size-4" />
+            </Link>
+          </div>
         </div>
       </div>
 
