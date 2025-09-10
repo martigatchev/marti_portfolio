@@ -65,7 +65,7 @@ function DefaultFooterContent() {
   <div className="grid grid-cols-[auto_1fr] items-end md:items-center gap-x-4 pt-4">
     {/* square */}
     <div className="relative h-14 w-14 sm:h-20 sm:w-20 md:h-20 md:w-20">
-      <div className="absolute inset-0 bg-[#CEAED5] border border-black/40" />
+      <div className="absolute inset-0 bg-[#CEAED5]" />
     </div>
 
     {/* right side */}

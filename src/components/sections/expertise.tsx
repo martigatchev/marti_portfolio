@@ -56,7 +56,7 @@ function ExpertiseCard({ c }: { c: Card }) {
       <div className="flex items-center gap-8">
         <div className="opacity-90">{c.icon}</div>
         <div className="font-display text-4xl sm:text-4xl font-extrabold text-black">
-          <span className="underline decoration-[var(--c-lilac,#a78bfa)] decoration-4 underline-offset-0">
+          <span className="">
             {c.titleTop}
           </span>
           {c.titleBottom ? (
