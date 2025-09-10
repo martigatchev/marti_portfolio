@@ -225,21 +225,32 @@ export default function PixelMosaic({
     const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
     scene.add(mesh);
 
-    // Sizing
+    // --- Sizing (throttled, rounded, DPR-aware) ---
+    let sizeRAF = 0;
+    const lastSize = { w: 0, h: 0 };
+
     const setSize = () => {
-      const { width, height } = el.getBoundingClientRect();
+      const w = Math.round(el.clientWidth);
+      const h = Math.round(el.clientHeight);
+      if (w === lastSize.w && h === lastSize.h) return; // ignore tiny/no changes
+      lastSize.w = w; lastSize.h = h;
+
       const dprTarget =
         quality === 'auto'
           ? Math.min(window.devicePixelRatio || 1, 2)
           : (quality as number);
 
       renderer.setPixelRatio(dprTarget);
-      renderer.setSize(width, height, false);
-      (uniforms.u_resolution.value as THREE.Vector2).set(width, height);
+      renderer.setSize(w, h, false);
+      (uniforms.u_resolution.value as THREE.Vector2).set(w, h);
     };
 
     setSize();
-    const ro = new ResizeObserver(setSize);
+
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(sizeRAF);
+      sizeRAF = requestAnimationFrame(setSize);
+    });
     ro.observe(el);
     roRef.current = ro;
 
@@ -260,6 +271,7 @@ export default function PixelMosaic({
 
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      if (sizeRAF) cancelAnimationFrame(sizeRAF);
       if (roRef.current) roRef.current.disconnect();
       scene.clear();
       material.dispose();
@@ -315,14 +327,15 @@ export default function PixelMosaic({
     const mat = materialRef.current;
     if (!el || !renderer || !mat) return;
     const setSize = () => {
-      const { width, height } = el.getBoundingClientRect();
+      const w = Math.round(el.clientWidth);
+      const h = Math.round(el.clientHeight);
       const dprTarget =
         quality === 'auto'
           ? Math.min(window.devicePixelRatio || 1, 2)
           : (quality as number);
       renderer.setPixelRatio(dprTarget);
-      renderer.setSize(width, height, false);
-      (mat.uniforms.u_resolution.value as THREE.Vector2).set(width, height);
+      renderer.setSize(w, h, false);
+      (mat.uniforms.u_resolution.value as THREE.Vector2).set(w, h);
     };
     setSize();
   }, [quality]);

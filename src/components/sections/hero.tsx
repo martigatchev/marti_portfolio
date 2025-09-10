@@ -25,7 +25,7 @@ export default function Hero() {
   });
 
   return (
-    <div ref={heroRef} className="relative w-full h-[100dvh] overflow-hidden">
+    <div ref={heroRef} className="relative w-full h-[100svh] overflow-hidden">
       {/* Only the background fades */}
       <motion.div
         style={{ opacity: mosaicOpacity, willChange: "opacity" }}

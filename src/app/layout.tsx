@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${display.variable}`}>
       <body className="antialiased font-sans bg-background text-foreground overscroll-y-none">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-screen flex-col overscroll-contain">
             <Header borders={true} />
             {/* No global PageFrame here */}
             <main className="flex-1 flex">{children}</main>
