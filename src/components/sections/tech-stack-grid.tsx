@@ -53,7 +53,7 @@ function TechPill({ tech }: { tech: Tech }) {
         px-3.5 py-2 text-sm font-semibold
         bg-[#fbefffff] hover:bg-[#CEAED5]
         transition-colors
-        text-black
+        text-black cursor-default
       "
       title={tech.label}
     >

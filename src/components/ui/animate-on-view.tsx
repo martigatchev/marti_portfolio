@@ -36,7 +36,18 @@ const PRESETS: Record<PresetKey, PresetVariants> = {
 } as const;
 
 /** Limit to the tags you actually use to keep types tight. Add more as needed. */
-type AsTag = 'div' | 'section' | 'h1' | 'h2' | 'p' | 'ul' | 'li' | 'span';
+type AsTag =
+  | 'div'
+  | 'section'
+  | 'h1'
+  | 'h2'
+  | 'p'
+  | 'ul'
+  | 'li'
+  | 'span'
+  | 'aside'
+  | 'nav'
+  | 'figure';
 
 type MotionMap = {
   [K in AsTag]: React.ComponentType<HTMLMotionProps<K>>;
@@ -51,6 +62,9 @@ const MOTION_MAP: MotionMap = {
   ul: motion.ul,
   li: motion.li,
   span: motion.span,
+  aside: motion.aside,
+  nav: motion.nav,
+  figure: motion.figure,
 };
 
 export type AnimateOnViewProps = PropsWithChildren<{

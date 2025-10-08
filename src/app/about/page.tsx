@@ -102,6 +102,7 @@ export default function AboutPage() {
   </AnimateOnView>
 </div>
 
+<hr className="mx-auto mt-18 mb-8 w-full border-0 border-t-[4px] border-black dark:border-white opacity-100" />
           
         </PageFrame>
       </main>

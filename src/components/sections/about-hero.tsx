@@ -63,7 +63,7 @@ function Floaty({
 export default function AboutHero() {
   return (
     // Section width knob
-    <div className="mx-auto w-full max-w-[var(--about-w,75rem)]">
+    <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
       {/* Desktop-only translucent frame (hidden on mobile by using sm: utilities) */}
       <div
         className="

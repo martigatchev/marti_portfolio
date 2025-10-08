@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimateOnView } from "@/components/ui/animate-on-view";
 import { PageFrame } from "@/components/page-frame";
+import { projects as projectData, type ProjectRecord } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects — Marti Gatchev",
@@ -47,25 +48,29 @@ function GlassBlock({
   );
 }
 
-type Project = {
-  title: string;
-  href?: string;
-  imageSrc: string;
-  imageAlt: string;
-  summary: string;
-  tags?: string[];
-};
+function ProjectCard({ project }: { project: ProjectRecord }) {
+  const { title, summary, tags, coverImage, status, slug } = project;
+  const isInteractive = status !== "coming-soon";
+  const targetHref = `/projects/${slug}`;
 
-function ProjectCard({ p }: { p: Project }) {
-  return (
-    <GlassBlock className="flex h-full flex-col">
+  const card = (
+    <GlassBlock
+      className={[
+        "flex h-full flex-col transition-transform duration-300",
+        isInteractive
+          ? "group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0_0_rgb(0,0,0)]"
+          : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       {/* Media */}
       <div className="relative w-full aspect-video">
         <Image
-          src={p.imageSrc}
-          alt={p.imageAlt}
+          src={coverImage.src}
+          alt={coverImage.alt}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 95vw"
+          sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 40vw, (min-width: 768px) 45vw, (min-width: 640px) 75vw, 95vw"
           className="object-cover"
         />
       </div>
@@ -73,13 +78,13 @@ function ProjectCard({ p }: { p: Project }) {
       {/* Body */}
       <div className="p-6 sm:p-8 flex flex-col gap-4 flex-1">
         <h3 className="font-display text-2xl font-extrabold leading-tight">
-          {p.title}
+          {title}
         </h3>
-        <p className="text-sub text-black/85 leading-relaxed">{p.summary}</p>
+        <p className="text-sub text-black/85 leading-relaxed">{summary}</p>
 
-        {p.tags?.length ? (
+        {tags?.length ? (
           <div className="mt-1 flex flex-wrap gap-2">
-            {p.tags.map((t) => (
+            {tags.map((t) => (
               <Tag key={t}>{t}</Tag>
             ))}
           </div>
@@ -87,25 +92,40 @@ function ProjectCard({ p }: { p: Project }) {
 
         {/* CTA */}
         <div className="mt-auto pt-2">
-          {p.href ? (
-            <Link
-              href={p.href}
+          {isInteractive ? (
+            <span
               className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
                          border-2 border-black text-black
-                         bg-[#fbefffff] hover:bg-[#CEAED5]
-                         transition-colors"
+                         bg-[#fbefffff] transition-colors
+                         group-hover:bg-[#CEAED5]"
             >
               View project
-            </Link>
+            </span>
           ) : (
-            <span className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
-                              border-2 border-black text-black bg-[#fbefffff] opacity-70">
+            <span
+              className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
+                              border-2 border-black text-black bg-[#fbefffff] opacity-70"
+            >
               Coming soon
             </span>
           )}
         </div>
       </div>
     </GlassBlock>
+  );
+
+  if (!isInteractive) {
+    return <div className="h-full">{card}</div>;
+  }
+
+  return (
+    <Link
+      href={targetHref}
+      aria-label={`View project: ${title}`}
+      className="group block h-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-black"
+    >
+      {card}
+    </Link>
   );
 }
 
@@ -129,60 +149,17 @@ export default function ProjectsPage() {
     "--p6-15": "rgba(255, 255, 255, 0.15)",
   };
 
-  // Replace with real data
-  const projects: Project[] = [
-    {
-      title: "Vosynia",
-      href: "/projects/vosynia",
-      imageSrc: "/aurora-hyper.jpg",
-      imageAlt: "Vosynia project preview",
-      summary:
-        "A living worldbook for a TTRPG setting—atlas, leaders, cultures, creatures. Built for fast onboarding and deep immersion.",
-      tags: ["React", "TypeScript", "OpenAI", "AWS"],
-    },
-    {
-      title: "Writing Assistant",
-      href: "/projects/writing-assistant",
-      imageSrc: "/aurora-hyper.jpg",
-      imageAlt: "Writing assistant preview",
-      summary:
-        "OpenAI-powered writing flows with function calling, streaming UIs, and prompt evals to improve output quality.",
-      tags: ["Next.js", "FastAPI", "RAG", "pgvector"],
-    },
-    {
-      title: "Portfolio Platform",
-      href: "/",
-      imageSrc: "/aurora-hyper.jpg",
-      imageAlt: "Portfolio platform preview",
-      summary:
-        "This site—component-driven design, glass blocks, animations, and a tidy App Router setup.",
-      tags: ["Next.js", "Tailwind", "Framer Motion"],
-    },
-    {
-      title: "iOS Audio Toy",
-      imageSrc: "/aurora-hyper.jpg",
-      imageAlt: "iOS audio app preview",
-      summary:
-        "A small SwiftUI app for layering loops and playful sound design.",
-      tags: ["Swift", "SwiftUI"],
-    },
-    {
-      title: "Data Tools",
-      imageSrc: "/aurora-hyper.jpg",
-      imageAlt: "Data tools preview",
-      summary:
-        "Internal tools for data cleanup, batch processing, and quick visual checks.",
-      tags: ["Python", "Pandas"],
-    },
-    {
-      title: "Mini Games",
-      imageSrc: "/aurora-hyper.jpg",
-      imageAlt: "Mini games preview",
-      summary:
-        "Tiny prototypes to explore interactions and micro-animations.",
-      tags: ["React", "Canvas"],
-    },
-  ];
+  const projects = projectData;
+
+  const projectCount = projects.length;
+  const gridLayoutClasses = [
+    "relative grid grid-cols-1 gap-6 md:gap-8 overflow-hidden rounded-[0.8rem]",
+    projectCount >= 2 ? "md:grid-cols-2" : "",
+    projectCount >= 3 ? "xl:grid-cols-3" : "",
+    projectCount <= 2 ? "mx-auto w-full max-w-7xl" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <section
@@ -205,33 +182,35 @@ export default function ProjectsPage() {
           >
             Projects
           </AnimateOnView>
-          <AnimateOnView as="p" preset="fadeUp" delay={0.06} amount={0.2}>
-            <p className="mt-4 text-center text-lg sm:text-xl text-black/80">
-              A few things I’ve built and shipped.
-            </p>
+          <AnimateOnView
+            as="p"
+            preset="fadeUp"
+            delay={0.06}
+            amount={0.2}
+            className="mt-4 text-center text-lg sm:text-xl text-black/80"
+          >
+            A few things I’ve built and shipped.
           </AnimateOnView>
 
           {/* Grid of projects inside a big glass block (no internal divider lines) */}
-<div className="mt-10">
-  <div className="rounded-[0.8rem]">
-    <div
-      className="
-        relative
-        grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
-        gap-6 sm:gap-8
-        overflow-hidden rounded-[0.8rem]
-      "
-
-    >
-      {projects.map((p, i) => (
-        <AnimateOnView key={i} as="div" preset="fadeUp" delay={i * 0.03} amount={0.15}>
-          <ProjectCard p={p} />
-        </AnimateOnView>
-      ))}
-    </div>
-  </div>
-</div>
-
+          <div className="mt-10">
+            <div className="rounded-[0.8rem]">
+              <div className={gridLayoutClasses}>
+                {projects.map((p, i) => (
+                  <AnimateOnView
+                    key={i}
+                    as="div"
+                    preset="fadeUp"
+                    delay={i * 0.03}
+                    amount={0.15}
+                    className="h-full"
+                  >
+                    <ProjectCard project={p} />
+                  </AnimateOnView>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Optional section break */}
           <hr className="mx-auto my-18 w-full border-0 border-t-[4px] border-black dark:border-white opacity-100" />
@@ -239,8 +218,8 @@ export default function ProjectsPage() {
           {/* Future: secondary grids, experiments, or a “More on GitHub” CTA */}
           <AnimateOnView as="div" preset="fadeUp" amount={0.2}>
             <div className="mx-auto max-w-3xl text-center text-sub text-black/75">
-              More soon — I’m constantly prototyping and iterating. For the full history,
-              check my GitHub.
+              More soon — I’m constantly prototyping and iterating. For the full
+              history, check my GitHub.
             </div>
           </AnimateOnView>
         </PageFrame>
