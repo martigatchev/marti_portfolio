@@ -131,7 +131,7 @@ function DefaultFooterContent() {
 
         {/* RIGHT: square top-right + bottom-right links */}
         <div className="relative h-full">
-          <div className="absolute top-4 right-0 size-20 xl:size-24 bg-[#CEAED5] border border-black/40" />
+          <div className="absolute top-4 right-0 size-20 xl:size-24 bg-[#CEAED5] " />
           <div className="absolute right-4 bottom-4 text-right space-y-1">
             <p className="text-white/70 leading-tight text-sub lg:text-xs xl:text-sm">
               Available for junior software engineering roles.
