@@ -41,7 +41,7 @@ export const projects: ProjectRecord[] = [
       "Vosynia started as a giant folder of notes and sketches. I turned it into a searchable worldbook that keeps the table plugged in between sessions.",
       "The app stitches together fast exploration on the surface with deeper dives into lore. Everything is editable, versioned, and ready for AI assisted lookups.",
     ],
-    tags: ["React", "TypeScript", "OpenAI", "AWS"],
+    tags: ["React", "TypeScript", "Chakra UI", "AWS", "OpenAI API", "Midjourney"],
     coverImage: {
       src: "/aurora-hyper.jpg",
       alt: "Vosynia project preview",
@@ -58,7 +58,7 @@ export const projects: ProjectRecord[] = [
       "Built a generative search assistant with OpenAI function calling.",
       "Designed component-driven UI with glass blocks and floating badges.",
     ],
-    tools: ["Next.js", "TypeScript", "Supabase", "OpenAI", "AWS Lambda"],
+    tools: [],
     outcomes: [
       "Sessions prep time dropped from hours to minutes with structured lore.",
       "Players stay immersed between games thanks to mobile-first content cards.",
@@ -123,59 +123,59 @@ export const projects: ProjectRecord[] = [
       },
     ],
   },
+  // {
+  //   slug: "portfolio-platform",
+  //   title: "Portfolio Platform",
+  //   subtitle: "Personal Site Infrastructure",
+  //   summary:
+  //     "This site—component-driven design, glass blocks, animations, and a tidy App Router setup.",
+  //   description: [
+  //     "I use my own portfolio as a playground for design systems, motion, and tooling experiments.",
+  //     "The platform stitches together reusable sections, rich motion primitives, and theme-preserving glass surfaces.",
+  //   ],
+  //   tags: ["Next.js", "Tailwind", "Framer Motion"],
+  //   coverImage: {
+  //     src: "/aurora-hyper.jpg",
+  //     alt: "Portfolio platform preview",
+  //   },
+  //   hero: {
+  //     eyebrow: "Design System",
+  //     ctaLabel: "View live site",
+  //     ctaHref: "/",
+  //   },
+  //   timeline: "2021 — Present",
+  //   role: ["Design, frontend engineering"],
+  //   responsibilities: [
+  //     "Built a growing component library for sections, cards, and utilities.",
+  //     "Implemented motion primitives with Framer Motion and Intersection Observer.",
+  //     "Established dark/light friendly glassmorphism palette with CSS variables.",
+  //   ],
+  //   tools: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+  //   outcomes: [
+  //     "New sections ship faster thanks to composable layout utilities.",
+  //     "Animations stay consistent across pages with one motion primitive.",
+  //     "Marketing pages stay performant with image optimization and lazy motion.",
+  //   ],
+  //   gallery: [
+  //     {
+  //       src: "/aurora-hyper.jpg",
+  //       alt: "Page frame grid overlay",
+  //       caption: "PageFrame overlay keeps spacing consistent across sections.",
+  //     },
+  //     {
+  //       src: "/aurora-hyper.jpg",
+  //       alt: "Glass block components",
+  //       caption: "Glass blocks reuse the shared palette variables defined per page.",
+  //     },
+  //   ],
+  // },
   {
-    slug: "portfolio-platform",
-    title: "Portfolio Platform",
-    subtitle: "Personal Site Infrastructure",
+    slug: "hiking-app",
+    title: "Baro-Hiking • iOS App",
+    subtitle: "Outdoor Exploration",
     summary:
-      "This site—component-driven design, glass blocks, animations, and a tidy App Router setup.",
-    description: [
-      "I use my own portfolio as a playground for design systems, motion, and tooling experiments.",
-      "The platform stitches together reusable sections, rich motion primitives, and theme-preserving glass surfaces.",
-    ],
-    tags: ["Next.js", "Tailwind", "Framer Motion"],
-    coverImage: {
-      src: "/aurora-hyper.jpg",
-      alt: "Portfolio platform preview",
-    },
-    hero: {
-      eyebrow: "Design System",
-      ctaLabel: "View live site",
-      ctaHref: "/",
-    },
-    timeline: "2021 — Present",
-    role: ["Design, frontend engineering"],
-    responsibilities: [
-      "Built a growing component library for sections, cards, and utilities.",
-      "Implemented motion primitives with Framer Motion and Intersection Observer.",
-      "Established dark/light friendly glassmorphism palette with CSS variables.",
-    ],
-    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    outcomes: [
-      "New sections ship faster thanks to composable layout utilities.",
-      "Animations stay consistent across pages with one motion primitive.",
-      "Marketing pages stay performant with image optimization and lazy motion.",
-    ],
-    gallery: [
-      {
-        src: "/aurora-hyper.jpg",
-        alt: "Page frame grid overlay",
-        caption: "PageFrame overlay keeps spacing consistent across sections.",
-      },
-      {
-        src: "/aurora-hyper.jpg",
-        alt: "Glass block components",
-        caption: "Glass blocks reuse the shared palette variables defined per page.",
-      },
-    ],
-  },
-  {
-    slug: "ios-audio-toy",
-    title: "iOS Audio Toy",
-    subtitle: "SwiftUI Loop Machine",
-    summary:
-      "A small SwiftUI app for layering loops and playful sound design.",
-    tags: ["Swift", "SwiftUI"],
+      "An iOS mobile app for ultra-accurate tracking of elevation gains while hiking, utilizing iPhone's built in barometer.",
+    tags: ["Swift", "SwiftUI", "CoreLocation", "CoreMotion"],
     description: [
       "A pocket-sized loop machine with draggable tracks, instant recording, and playful themes.",
     ],
@@ -188,44 +188,44 @@ export const projects: ProjectRecord[] = [
       eyebrow: "Mobile",
     },
   },
-  {
-    slug: "data-tools",
-    title: "Data Tools",
-    subtitle: "Automation Suite",
-    summary:
-      "Internal tools for data cleanup, batch processing, and quick visual checks.",
-    tags: ["Python", "Pandas"],
-    description: [
-      "A grab-bag of CLI and web tools built to tame messy CSVs, schedule cleanups, and surface issues fast.",
-    ],
-    status: "coming-soon",
-    coverImage: {
-      src: "/aurora-hyper.jpg",
-      alt: "Data tools preview",
-    },
-    hero: {
-      eyebrow: "Automation",
-    },
-  },
-  {
-    slug: "mini-games",
-    title: "Mini Games",
-    subtitle: "Interaction Experiments",
-    summary:
-      "Tiny prototypes to explore interactions and micro-animations.",
-    tags: ["React", "Canvas"],
-    description: [
-      "A rotating set of micro-games for testing ideas around physics, easing, and haptics.",
-    ],
-    status: "coming-soon",
-    coverImage: {
-      src: "/aurora-hyper.jpg",
-      alt: "Mini games preview",
-    },
-    hero: {
-      eyebrow: "Playground",
-    },
-  },
+  // {
+  //   slug: "data-tools",
+  //   title: "Data Tools",
+  //   subtitle: "Automation Suite",
+  //   summary:
+  //     "Internal tools for data cleanup, batch processing, and quick visual checks.",
+  //   tags: ["Python", "Pandas"],
+  //   description: [
+  //     "A grab-bag of CLI and web tools built to tame messy CSVs, schedule cleanups, and surface issues fast.",
+  //   ],
+  //   status: "coming-soon",
+  //   coverImage: {
+  //     src: "/aurora-hyper.jpg",
+  //     alt: "Data tools preview",
+  //   },
+  //   hero: {
+  //     eyebrow: "Automation",
+  //   },
+  // },
+  // {
+  //   slug: "mini-games",
+  //   title: "Mini Games",
+  //   subtitle: "Interaction Experiments",
+  //   summary:
+  //     "Tiny prototypes to explore interactions and micro-animations.",
+  //   tags: ["React", "Canvas"],
+  //   description: [
+  //     "A rotating set of micro-games for testing ideas around physics, easing, and haptics.",
+  //   ],
+  //   status: "coming-soon",
+  //   coverImage: {
+  //     src: "/aurora-hyper.jpg",
+  //     alt: "Mini games preview",
+  //   },
+  //   hero: {
+  //     eyebrow: "Playground",
+  //   },
+  // },
 ];
 
 export function getProjectBySlug(slug: string) {

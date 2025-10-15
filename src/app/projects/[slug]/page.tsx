@@ -319,24 +319,16 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
                 as="nav"
                 preset="fadeUp"
                 amount={0.2}
-                className="flex flex-col gap-6 border-t-4 border-black pt-8 sm:flex-row sm:items-center sm:justify-between"
+                className="flex flex-col gap-6 border-t-4 border-black pt-8 sm:flex-row sm:items-center sm:justify-start"
               >
                 <Link
                   href={
                     prevProject ? `/projects/${prevProject.slug}` : "/projects"
                   }
-                  className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold border-2 border-black text-black bg-[#fbefffff] hover:bg-[#CEAED5] transition-colors"
+                  className="inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-lg px-4 py-2 text-sm font-semibold border-2 border-black text-black bg-[#fbefffff] hover:bg-[#CEAED5] transition-colors"
                 >
                   ← {prevProject ? prevProject.title : "Back to all projects"}
                 </Link>
-                {nextProject ? (
-                  <Link
-                    href={`/projects/${nextProject.slug}`}
-                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold border-2 border-black text-black bg-[#fbefffff] hover:bg-[#CEAED5] transition-colors self-end"
-                  >
-                    Next project → {nextProject.title}
-                  </Link>
-                ) : null}
               </AnimateOnView>
             )}
           </div>
