@@ -16,7 +16,7 @@ type ProjectPageParams = {
 };
 
 const liveProjects = allProjects.filter(
-  (project) => project.status !== "coming-soon",
+  (project) => project.status !== "coming-soon"
 );
 
 export function generateStaticParams() {
@@ -38,13 +38,7 @@ export function generateMetadata({
   };
 }
 
-function DetailPanel({
-  title,
-  items,
-}: {
-  title: string;
-  items?: string[];
-}) {
+function DetailPanel({ title, items }: { title: string; items?: string[] }) {
   if (!items?.length) return null;
   return (
     <div>
@@ -120,64 +114,62 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
     >
       <main>
         <PageFrame showGrid inset="p-6 sm:p-8 lg:p-10">
-          <div className="mx-auto w-full max-w-7xl space-y-16">
+          <div className="mx-auto w-full max-w-7xl space-y-12">
             <AnimateOnView
               as="div"
               preset="fadeUp"
               amount={0.2}
-              className="space-y-6"
+              className="glass-shell overflow-hidden bg-clip-padding -mx-6 -mt-6 sm:mx-0 sm:mt-0 sm:rounded-[0.8rem] sm:border-4 sm:border-black sm:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+              style={{
+                background:
+                  "linear-gradient(360deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.55) 100%)",
+              }}
             >
-              <nav className="flex flex-wrap items-center gap-2 text-sm text-black/60">
-                <Link
-                  href="/projects"
-                  className="transition-colors hover:text-black underline-offset-4 hover:underline"
-                >
-                  Projects
-                </Link>
-                <span aria-hidden="true">›</span>
-                <span className="font-medium text-black">{title}</span>
-              </nav>
+              <div className="space-y-4 px-6 pt-6 sm:px-8 sm:pt-8 pb-6 sm:pb-8">
+                <nav className="flex flex-wrap items-center gap-2 text-base sm:text-lg text-black/60">
+                  <Link
+                    href="/projects"
+                    className="transition-colors hover:text-black underline-offset-4 hover:underline"
+                  >
+                    Projects
+                  </Link>
+                  <span aria-hidden="true">›</span>
+                  <span className="font-medium text-black">{title}</span>
+                </nav>
 
-              <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-                <div className="max-w-3xl space-y-4">
+                <div className="max-w-2xl space-y-2">
                   <p className="text-sm uppercase tracking-[0.35em] text-black/60">
                     {hero?.eyebrow ?? subtitle ?? "Project"}
                   </p>
-                  <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-black dark:text-white">
+                  <h1 className="mt-4 font-display text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-black dark:text-white">
                     {title}
                   </h1>
-                  <p className="text-sub text-lg sm:text-xl text-black/80">
+                  <p className="text-sub text-sm sm:text-xl text-black/80">
                     {summary}
                   </p>
+
+                  {/* Button */}
+                  {hero?.ctaHref ? (
+                    <Link
+                      href={hero.ctaHref}
+                      className="mt-4 inline-flex w-fit items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold border-2 border-black text-black bg-[#fbefffff] hover:bg-[#CEAED5] transition-colors"
+                      target={
+                        hero.ctaHref.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        hero.ctaHref.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                    >
+                      {hero.ctaLabel ?? "Visit website"}
+                      <ArrowUpRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  ) : null}
                 </div>
-
-                {hero?.ctaHref ? (
-                  <Link
-                    href={hero.ctaHref}
-                    className="inline-flex w-fit items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold border-2 border-black text-black bg-[#fbefffff] hover:bg-[#CEAED5] transition-colors"
-                    target={hero.ctaHref.startsWith("http") ? "_blank" : undefined}
-                    rel={
-                      hero.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined
-                    }
-                  >
-                    {hero.ctaLabel ?? "Visit website"}
-                    <ArrowUpRight className="size-4" aria-hidden="true" />
-                  </Link>
-                ) : null}
               </div>
-            </AnimateOnView>
 
-            <AnimateOnView
-              as="div"
-              preset="fadeUp"
-              amount={0.2}
-              className="rounded-[0.8rem] border-4 border-black overflow-hidden bg-clip-padding"
-              style={{
-                background:
-                  "linear-gradient(360deg, var(--p6-15) 0%, var(--p5-25) 100%), rgba(255, 255, 255, 0.6)",
-              }}
-            >
-              <div className="relative aspect-[16/9] w-full">
+              <div className="relative aspect-[16/9] w-full border-t-4 border-black">
                 <Image
                   src={coverImage.src}
                   alt={coverImage.alt}
@@ -189,8 +181,15 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
               </div>
             </AnimateOnView>
 
-            <div
-              className="rounded-[0.8rem] border-0 sm:border-4 sm:border-black bg-clip-padding glass-shell bg-transparent sm:[background:linear-gradient(360deg,var(--p6-15)_0%,var(--p5-25)_100%),rgba(255,255,255,0.6)] sm:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+            <AnimateOnView
+              as="div"
+              preset="fadeUp"
+              amount={0.2}
+              className="glass-shell rounded-[0.8rem] border-4 border-black bg-clip-padding sm:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+              style={{
+                background:
+                  "linear-gradient(360deg, var(--p6-15) 0%, var(--p5-25) 100%), rgba(255, 255, 255, 0.6)",
+              }}
             >
               <div className="grid gap-12 p-6 sm:p-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                 <AnimateOnView
@@ -245,7 +244,7 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
                   amount={0.2}
                   className="space-y-6"
                 >
-                  <div className="rounded-[0.8rem] border-4 border-black bg-clip-padding p-6 sm:p-8 bg-white space-y-6">
+                  <div className="rounded-[0.8rem] border-4 border-black bg-clip-padding p-6 sm:p-8 bg-white/85 space-y-6">
                     <div className="space-y-6">
                       <DetailPanel
                         title="Timeline"
@@ -254,27 +253,29 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
                       <DetailPanel title="Role" items={role} />
                     </div>
 
-                    {(tags?.length || tools?.length) ? (
+                    {tags?.length || tools?.length ? (
                       <div className="space-y-3">
                         <h4 className="font-display text-lg font-semibold tracking-tight text-black">
                           Tech Stack
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {[...(tags ?? []), ...(tools ?? [])].map((tag, index) => (
-                            <span
-                              key={`${tag}-${index}`}
-                              className="inline-flex items-center rounded-full border-2 border-black px-3 py-1 text-xs font-semibold bg-[#fbefffff] transition-colors duration-200 hover:bg-[#CEAED5] cursor-default"
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                          {[...(tags ?? []), ...(tools ?? [])].map(
+                            (tag, index) => (
+                              <span
+                                key={`${tag}-${index}`}
+                                className="inline-flex items-center rounded-full border-2 border-black px-3 py-1 text-xs font-semibold bg-[#fbefffff] transition-colors duration-200 hover:bg-[#CEAED5] cursor-default"
+                              >
+                                {tag}
+                              </span>
+                            )
+                          )}
                         </div>
                       </div>
                     ) : null}
                   </div>
                 </AnimateOnView>
               </div>
-            </div>
+            </AnimateOnView>
 
             {gallery?.length ? (
               <div className="space-y-10">
@@ -322,9 +323,7 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
               >
                 <Link
                   href={
-                    prevProject
-                      ? `/projects/${prevProject.slug}`
-                      : "/projects"
+                    prevProject ? `/projects/${prevProject.slug}` : "/projects"
                   }
                   className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold border-2 border-black text-black bg-[#fbefffff] hover:bg-[#CEAED5] transition-colors"
                 >

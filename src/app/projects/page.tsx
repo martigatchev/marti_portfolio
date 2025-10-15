@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { AnimateOnView } from "@/components/ui/animate-on-view";
 import { PageFrame } from "@/components/page-frame";
 import { projects as projectData, type ProjectRecord } from "@/data/projects";
@@ -57,9 +58,7 @@ function ProjectCard({ project }: { project: ProjectRecord }) {
     <GlassBlock
       className={[
         "flex h-full flex-col transition-transform duration-300",
-        isInteractive
-          ? "group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0_0_rgb(0,0,0)]"
-          : "",
+        isInteractive ? "group-hover:-translate-y-1" : "",
       ]
         .filter(Boolean)
         .join(" ")}
@@ -93,14 +92,16 @@ function ProjectCard({ project }: { project: ProjectRecord }) {
         {/* CTA */}
         <div className="mt-auto pt-2">
           {isInteractive ? (
-            <span
+            <Link
+              href={targetHref}
               className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
                          border-2 border-black text-black
-                         bg-[#fbefffff] transition-colors
-                         group-hover:bg-[#CEAED5]"
+                         bg-[#fbefffff] transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-black
+                         hover:bg-[#CEAED5]"
             >
               View project
-            </span>
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </Link>
           ) : (
             <span
               className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
@@ -118,15 +119,7 @@ function ProjectCard({ project }: { project: ProjectRecord }) {
     return <div className="h-full">{card}</div>;
   }
 
-  return (
-    <Link
-      href={targetHref}
-      aria-label={`View project: ${title}`}
-      className="group block h-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-black"
-    >
-      {card}
-    </Link>
-  );
+  return <div className="group h-full">{card}</div>;
 }
 
 /* ===== Page ===== */
@@ -153,7 +146,7 @@ export default function ProjectsPage() {
 
   const projectCount = projects.length;
   const gridLayoutClasses = [
-    "relative grid grid-cols-1 gap-6 md:gap-8 overflow-hidden rounded-[0.8rem]",
+    "relative grid grid-cols-1 gap-6 md:gap-8 rounded-[0.8rem]",
     projectCount >= 2 ? "md:grid-cols-2" : "",
     projectCount >= 3 ? "xl:grid-cols-3" : "",
     projectCount <= 2 ? "mx-auto w-full max-w-7xl" : "",
