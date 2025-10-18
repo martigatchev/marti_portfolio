@@ -33,6 +33,8 @@ import {
   siJavascript,
   siGooglegemini,
   siSelenium,
+  siLangchain,
+  siSupabase,
 } from "simple-icons/icons";
 
 // Minimal runtime type for a Simple Icons object
@@ -207,7 +209,7 @@ export default function TechStackGrid() {
               { label: "REST APIs", si: siSwagger },
             ]}
             working={[
-              { label: "Prisma", si: siPrismaORM },
+              { label: "Supabase", si: siSupabase },
               { label: "Node.js / Express", si: siNodedotjs },
               { label: "JWT / OAuth", si: siJsonwebtokens },
               { label: "Swift", si: siSwift },
@@ -243,11 +245,11 @@ export default function TechStackGrid() {
             primary={[
               { label: "OpenAI API / Playground", si: siOpenai },
               { label: "OpenAI Codex", si: siOpenai },
-              { label: "Function/Tool Calling" }, 
-              { label: "Midjourney" }, 
+              { label: "Midjourney" },
             ]}
             working={[
               { label: "Gemini", si: siGooglegemini },
+              { label: "LangChain Tooling", si: siLangchain },
             ]}
           />
 

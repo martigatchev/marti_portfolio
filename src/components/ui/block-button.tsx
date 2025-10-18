@@ -19,9 +19,9 @@ type BlockButtonProps = {
 };
 
 const sizeClasses = {
-  sm: 'px-4 py-2 text-lg',
-  md: 'px-6 py-4 text-xl sm:text-3xl',
-  lg: 'px-8 py-6 text-2xl sm:text-4xl',
+  sm: 'px-4 py-2 text-base sm:text-lg',
+  md: 'px-6 py-3.5 text-xl sm:text-2xl',
+  lg: 'px-7 py-4 text-2xl sm:text-[2.5rem]',
 } as const;
 
 export function BlockButton({
