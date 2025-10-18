@@ -50,11 +50,11 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
     hidden: { y: "-100vh" },
     visible: {
       y: 0,
-      transition: { type: "tween", duration: 0.7 },
+      transition: { type: "tween", duration: 0.8 },
     },
     exit: {
       y: "-100vh",
-      transition: { type: "tween", duration: 0.6, delay: 0.5 },
+      transition: { type: "tween", duration: 0.8 },
     },
   } as const;
 
@@ -73,12 +73,12 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: "easeOut" },
+      transition: { duration: 1.25, ease: "easeOut" },
     },
     exit: {
       opacity: 0,
       y: 40,
-      transition: { duration: 0.3, ease: "easeOut" },
+      transition: { duration: 0.2, ease: "easeOut" },
     },
   } as const;
 
