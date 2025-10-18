@@ -118,40 +118,36 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
           <ul className="flex items-center gap-4">
             {utilityIcons.map(({ href, label, icon: Icon }) => (
               <li key={href}>
-                <Link
-                  href={href}
-                  aria-label={label}
-                  className={buttonClasses}
-                >
+                <Link href={href} aria-label={label} className={buttonClasses}>
                   <Icon className="size-4" />
                 </Link>
               </li>
             ))}
-          <li>
-            <button
-              type="button"
-              aria-label={open ? "Close navigation" : "Open navigation"}
-              aria-expanded={open}
-              aria-controls="mobile-nav-overlay"
-              onClick={() => setOpen((prev) => !prev)}
-              className={`${buttonClasses} relative overflow-hidden`}
-            >
-              <span
-                className={`absolute inset-0 grid place-items-center transition-opacity duration-200 ${
-                  open ? "opacity-0" : "opacity-100"
-                }`}
+            <li>
+              <button
+                type="button"
+                aria-label={open ? "Close navigation" : "Open navigation"}
+                aria-expanded={open}
+                aria-controls="mobile-nav-overlay"
+                onClick={() => setOpen((prev) => !prev)}
+                className={`${buttonClasses} relative overflow-hidden`}
               >
-                <Menu className="h-[1.25rem] w-[1.25rem]" />
-              </span>
-              <span
-                className={`absolute inset-0 grid place-items-center transition-opacity duration-200 ${
-                  open ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <X className="h-[1.25rem] w-[1.25rem]" />
-              </span>
-            </button>
-          </li>
+                <span
+                  className={`absolute inset-0 grid place-items-center transition-opacity duration-200 ${
+                    open ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <Menu className="h-[1.25rem] w-[1.25rem]" />
+                </span>
+                <span
+                  className={`absolute inset-0 grid place-items-center transition-opacity duration-200 ${
+                    open ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <X className="h-[1.25rem] w-[1.25rem]" />
+                </span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
