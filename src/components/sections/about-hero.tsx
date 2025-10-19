@@ -151,6 +151,7 @@ export default function AboutHero() {
                 value.
               </p>
 
+              <AnimateOnView as="div" preset="slideLeft">
               <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
                 <Link
                   href="https://github.com/yourprofile"
@@ -174,6 +175,7 @@ export default function AboutHero() {
                   View Resume
                 </Link>
               </div>
+              </AnimateOnView>
             </div>
           </AnimateOnView>
 

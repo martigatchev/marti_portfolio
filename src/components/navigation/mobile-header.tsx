@@ -175,7 +175,7 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-[60] flex min-h-[100vh] flex-col bg-white/95 text-[var(--c-black)]"
+            className="fixed inset-0 z-[60] flex min-h-[100vh] flex-col bg-white/100 text-[var(--c-black)]"
           >
             <motion.nav
               variants={navVariants}

@@ -3,6 +3,7 @@
 import React from 'react';
 import { Monitor, Atom, Smartphone } from 'lucide-react';
 import { BlockButton } from '../ui/block-button';
+import { AnimateOnView } from '../ui/animate-on-view';
 
 type Card = {
   icon: React.ReactNode;
@@ -52,6 +53,7 @@ function DotList({ items }: { items: string[] }) {
 
 function ExpertiseCard({ c }: { c: Card }) {
   return (
+    <AnimateOnView as="div" preset="slideLeft">
     <div className="h-full p-8 sm:p-10 bg-white/70 bg-clip-padding">
       <div className="flex items-center gap-8">
         <div className="opacity-90">{c.icon}</div>
@@ -95,12 +97,14 @@ function ExpertiseCard({ c }: { c: Card }) {
         {c.blurb}
       </p>
     </div>
+    </AnimateOnView>
   );
 }
 
 function QuoteCard() {
   return (
     <div className="h-full p-8 sm:p-10 bg-lilac/60 flex items-center justify-center text-center">
+      <AnimateOnView as="div" preset="slideLeft">
       <blockquote className="m-0 max-w-3xl">
         <p className="font-display text-2xl sm:text-3xl font-extrabold leading-snug text-black">
           Science is magic that works.
@@ -109,6 +113,7 @@ function QuoteCard() {
           — Kurt Vonnegut, &quot;Cat&apos;s Cradle&quot;
         </footer>
       </blockquote>
+      </AnimateOnView>
     </div>
   );
 }

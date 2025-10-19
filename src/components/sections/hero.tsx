@@ -35,7 +35,7 @@ export default function Hero() {
           className="w-full h-full"
           pixelSize={1}
           speed={0.8}
-          noiseScale={2.5}
+          noiseScale={2.0}
           contrast={1.9}
           palette={["#CEAED5", "#b48cff", "#e799c0ff", "#a78bfa", "#ffffffff"]}
           paletteMix={0.8}

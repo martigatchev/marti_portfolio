@@ -49,7 +49,7 @@ export const projects: ProjectRecord[] = [
     hero: {
       eyebrow: "Worldbuilding Platform",
       ctaLabel: "Open build",
-      ctaHref: "/projects/vosynia",
+      ctaHref: "https://vosynia.com",
     },
     timeline: "2023 — Present",
     role: ["Product, design, and full-stack dev"],
@@ -78,24 +78,24 @@ export const projects: ProjectRecord[] = [
     ],
   },
   {
-    slug: "writing-assistant",
-    title: "Writing Assistant",
-    subtitle: "AI Writing Workbench",
+    slug: "portfolio-website",
+    title: "Marti Gatchev Portfolio",
+    subtitle: "Portfolio Website",
     summary:
-      "OpenAI-powered writing flows with function calling, streaming UIs, and prompt evals to improve output quality.",
+      "Website summary.",
     description: [
       "I built an internal workbench for editorial teams experimenting with AI generated content. The goal: shorten iteration loops without losing tone or accuracy.",
       "The assistant orchestrates prompt templates, fact checks with retrieval, and delivers drafts in structured blocks editors can remix.",
     ],
-    tags: ["Next.js", "FastAPI", "RAG", "pgvector"],
+    tags: ["Next.js", "React", "Typescript", "Tailwind", "Framer Motion"],
     coverImage: {
-      src: "/aurora-hyper.jpg",
-      alt: "Writing assistant preview",
+      src: "/marti-portfolio/marti-portfolio-home.png",
+      alt: "Portfolio Website preview",
     },
     hero: {
-      eyebrow: "AI Workflow",
-      ctaLabel: "Explore workflow",
-      ctaHref: "/projects/writing-assistant",
+      eyebrow: "Portfolio Website",
+      ctaLabel: "Open build",
+      ctaHref: "/",
     },
     timeline: "2022 — 2023",
     role: ["Full-stack engineer"],
@@ -170,7 +170,7 @@ export const projects: ProjectRecord[] = [
   //   ],
   // },
   {
-    slug: "hiking-app",
+    slug: "baro-hiking",
     title: "Baro-Hiking • iOS App",
     subtitle: "Outdoor Exploration",
     summary:
