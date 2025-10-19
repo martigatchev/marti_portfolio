@@ -34,16 +34,16 @@ export default function Hero() {
         <PixelMosaic
           className="w-full h-full"
           pixelSize={1}
-          speed={0.4}
-          noiseScale={1.0}
+          speed={0.8}
+          noiseScale={2.5}
           contrast={1.9}
           palette={["#CEAED5", "#b48cff", "#e799c0ff", "#a78bfa", "#ffffffff"]}
           paletteMix={0.8}
           toneGamma={1.1}
           tint="var(--c-lilac)"
           tintAmount={1.5}
-          edgeFeather={0.4}
-          edgeMinAlpha={0.3}
+          edgeFeather={0.3}
+          edgeMinAlpha={0.6}
           quality={1}
         />
       </motion.div>
