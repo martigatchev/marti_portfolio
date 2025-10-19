@@ -46,39 +46,61 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
     },
   ] as const;
 
+  // Animation variants for entire menu page
   const modalVariants = {
     hidden: { y: "-100vh" },
     visible: {
       y: 0,
-      transition: { type: "tween", duration: 0.8 },
+      transition: {
+        type: "tween",
+        ease: "easeOut",
+        duration: 0.5,
+        when: "beforeChildren", // parent enters first, then children
+      },
     },
     exit: {
       y: "-100vh",
-      transition: { type: "tween", duration: 0.8 },
+      transition: {
+        type: "tween",
+        ease: "easeIn",
+        duration: 0.4,
+        when: "afterChildren", // wait for children to finish exiting
+      },
     },
   } as const;
 
+  // Animation variants for list of nav-menu items
+  // delayChildren staggers the children after the parent animation completes
+  // staggerChildren staggers each child animation
+ 
   const navVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.2, delayChildren: 0.5 },
+      transition: {
+        delayChildren: 0.0,
+        staggerChildren: 0.1,
+      },
     },
     exit: {
-      transition: { staggerChildren: 0.16, staggerDirection: -1 },
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
     },
   } as const;
 
+  // Each item: come FROM top on enter, go UP on exit
   const navItemVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: -50 }, // start above
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.25, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
     exit: {
       opacity: 0,
-      y: 40,
-      transition: { duration: 0.2, ease: "easeOut" },
+      y: -40, // move up as it leaves
+      transition: { duration: 0.25, ease: "easeIn" },
     },
   } as const;
 
@@ -163,9 +185,6 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
           >
             <motion.nav
               variants={navVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
               className="flex-1 overflow-y-auto px-8 pt-[calc(env(safe-area-inset-top)+7rem)] pb-[calc(env(safe-area-inset-bottom)+3rem)]"
             >
               <motion.ul className="flex flex-col gap-8 justify-start min-h-full">

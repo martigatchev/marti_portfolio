@@ -169,7 +169,7 @@ export default function ProjectsPage() {
           {/* Header */}
           <AnimateOnView
             as="h1"
-            preset="slideLeft"
+            preset="fadeUp"
             amount={0.2}
             className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white"
           >

@@ -17,6 +17,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;        // your base classes (e.g., navBox)
   activeClassName?: string;  // override the active classes if you want
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 export function NavLink({
@@ -24,6 +25,7 @@ export function NavLink({
   children,
   className,
   activeClassName = 'bg-black text-white',
+  onClick,
 }: Props) {
   const currentSeg = useSelectedLayoutSegment(); // null on '/'
   const targetSeg = firstSegment(href);
@@ -36,6 +38,7 @@ export function NavLink({
     <Link
       href={href}
       aria-current={active ? 'page' : undefined}
+      onClick={onClick}
       className={cn(className, active && activeClassName)}
     >
       {children}

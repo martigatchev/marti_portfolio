@@ -1,5 +1,7 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
+
 import { MobileHeader } from "@/components/navigation/mobile-header";
 import { DesktopHeader } from "@/components/navigation/desktop-header";
 
@@ -13,6 +15,23 @@ const LINKS: Link[] = [
 ];
 
 export function Header({ borders = false }: { borders?: boolean }) {
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const viewport = window.visualViewport;
+    const node = headerRef.current;
+    if (!viewport || !node) return;
+
+    // Freeze the initial offset so Safari URL-bar collapsing can't reduce it mid-scroll.
+    const lockedTop = Math.round(viewport.offsetTop ?? 0);
+    node.style.setProperty(
+      "--locked-safe-area",
+      `${lockedTop}px`
+    );
+  }, []);
+
   const headerClass = [
     "fixed inset-x-0 top-0 z-50",
     "pt-[env(safe-area-inset-top)]",
@@ -22,7 +41,13 @@ export function Header({ borders = false }: { borders?: boolean }) {
   ].join(" ");
 
   return (
-    <header className={headerClass}>
+    <header
+      ref={headerRef}
+      className={headerClass}
+      style={{
+        paddingTop: "var(--locked-safe-area, env(safe-area-inset-top))",
+      }}
+    >
       <MobileHeader borders={borders} links={LINKS} />
       <DesktopHeader borders={borders} links={LINKS} />
     </header>
