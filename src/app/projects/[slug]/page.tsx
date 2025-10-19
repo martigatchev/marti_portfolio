@@ -10,9 +10,9 @@ import { AnimateOnView } from "@/components/ui/animate-on-view";
 import { getProjectBySlug, projects as allProjects } from "@/data/projects";
 
 type ProjectPageParams = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const liveProjects = allProjects.filter(
@@ -23,10 +23,11 @@ export function generateStaticParams() {
   return liveProjects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
-}: ProjectPageParams): Metadata | undefined {
-  const project = getProjectBySlug(params.slug);
+}: ProjectPageParams): Promise<Metadata | undefined> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
   if (!project) {
     return;
   }
@@ -56,8 +57,11 @@ function DetailPanel({ title, items }: { title: string; items?: string[] }) {
   );
 }
 
-export default function ProjectDetailPage({ params }: ProjectPageParams) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetailPage({
+  params,
+}: ProjectPageParams) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project || project.status === "coming-soon") {
     notFound();
@@ -77,7 +81,7 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
     outcomes,
     gallery,
     tags,
-    slug,
+    slug: projectSlug,
   } = project;
 
   const paletteVars = {
@@ -96,7 +100,9 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
     "--p6-15": "rgba(255, 255, 255, 0.15)",
   } as CSSProperties;
 
-  const currentIndex = liveProjects.findIndex((item) => item.slug === slug);
+  const currentIndex = liveProjects.findIndex(
+    (item) => item.slug === projectSlug
+  );
   const prevProject =
     currentIndex > 0 ? liveProjects[currentIndex - 1] : undefined;
   const nextProject =

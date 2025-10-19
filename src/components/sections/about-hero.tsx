@@ -10,9 +10,6 @@ import {
   Linkedin,
   FileText,
   Sparkles,
-  Camera,
-  Music2,
-  Server,
   Cog,
   Palette,
 } from "lucide-react";

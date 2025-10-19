@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { Github, Linkedin, Menu, X } from "lucide-react";
 import { NavLink } from "@/components/navigation/nav-link";
 
 type LinkItem = { href: string; label: string };
@@ -72,7 +72,7 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
   // Animation variants for list of nav-menu items
   // delayChildren staggers the children after the parent animation completes
   // staggerChildren staggers each child animation
- 
+
   const navVariants = {
     hidden: {},
     visible: {
@@ -114,20 +114,14 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
   const buttonClasses = [
     "grid place-items-center rounded-full border-2 transition-colors duration-300",
     "h-10 w-10",
-    open
-      ? "border-[var(--c-white)] text-[var(--c-white)] hover:bg-[var(--c-white)] hover:text-[var(--c-black)]"
-      : "border-[var(--c-black)] text-[var(--c-black)] hover:bg-[var(--c-black)] hover:text-[var(--c-white)]",
+    "border-[var(--c-black)] text-[var(--c-black)] hover:bg-[var(--c-black)] hover:text-[var(--c-white)]",
   ].join(" ");
 
   return (
     <>
       <div className={`sm:hidden bg-background ${mobileWrapBorders}`}>
         <div
-          className={`h-16 flex items-center justify-between px-4 transition-colors duration-300 ${
-            open
-              ? "bg-[var(--c-black)] text-[var(--c-white)]"
-              : "bg-background text-[var(--c-black)]"
-          } ${mobileTopBarBorder} relative z-[70]`}
+          className={`h-16 flex items-center justify-between px-4 transition-colors duration-300 bg-background text-[var(--c-black)] ${mobileTopBarBorder} relative z-[70]`}
         >
           <Link
             href="/"
@@ -181,7 +175,7 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-[60] flex min-h-[100vh] flex-col bg-[var(--c-black)] text-[var(--c-white)]"
+            className="fixed inset-0 z-[60] flex min-h-[100vh] flex-col bg-white/95 text-[var(--c-black)]"
           >
             <motion.nav
               variants={navVariants}
