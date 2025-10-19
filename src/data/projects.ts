@@ -43,7 +43,7 @@ export const projects: ProjectRecord[] = [
     ],
     tags: ["React", "TypeScript", "Chakra UI", "AWS", "OpenAI API", "Midjourney"],
     coverImage: {
-      src: "/aurora-hyper.jpg",
+      src: "/vosynia/aurora-hyper.jpg",
       alt: "Vosynia project preview",
     },
     hero: {
@@ -66,12 +66,12 @@ export const projects: ProjectRecord[] = [
     ],
     gallery: [
       {
-        src: "/aurora-hyper.jpg",
+        src: "/vosynia/aurora-hyper.jpg",
         alt: "Lore cards and faction overview",
         caption: "Cards keep factions, locations, and quests consistent across sessions.",
       },
       {
-        src: "/aurora-hyper.jpg",
+        src: "/vosynia/aurora-hyper.jpg",
         alt: "Interactive map view",
         caption: "Map annotations jump players straight into relevant lore entries.",
       },
@@ -112,12 +112,12 @@ export const projects: ProjectRecord[] = [
     ],
     gallery: [
       {
-        src: "/aurora-hyper.jpg",
+        src: "/vosynia/aurora-hyper.jpg",
         alt: "Draft generation UI",
         caption: "Streaming output keeps editors in the loop while the model writes.",
       },
       {
-        src: "/aurora-hyper.jpg",
+        src: "/vosynia/aurora-hyper.jpg",
         alt: "Prompt evaluation dashboard",
         caption: "Evaluation view compares drafts across models and temperatures.",
       },
@@ -181,51 +181,13 @@ export const projects: ProjectRecord[] = [
     ],
     status: "coming-soon",
     coverImage: {
-      src: "/aurora-hyper.jpg",
+      src: "/vosynia/aurora-hyper.jpg",
       alt: "iOS audio app preview",
     },
     hero: {
       eyebrow: "Mobile",
     },
   },
-  // {
-  //   slug: "data-tools",
-  //   title: "Data Tools",
-  //   subtitle: "Automation Suite",
-  //   summary:
-  //     "Internal tools for data cleanup, batch processing, and quick visual checks.",
-  //   tags: ["Python", "Pandas"],
-  //   description: [
-  //     "A grab-bag of CLI and web tools built to tame messy CSVs, schedule cleanups, and surface issues fast.",
-  //   ],
-  //   status: "coming-soon",
-  //   coverImage: {
-  //     src: "/aurora-hyper.jpg",
-  //     alt: "Data tools preview",
-  //   },
-  //   hero: {
-  //     eyebrow: "Automation",
-  //   },
-  // },
-  // {
-  //   slug: "mini-games",
-  //   title: "Mini Games",
-  //   subtitle: "Interaction Experiments",
-  //   summary:
-  //     "Tiny prototypes to explore interactions and micro-animations.",
-  //   tags: ["React", "Canvas"],
-  //   description: [
-  //     "A rotating set of micro-games for testing ideas around physics, easing, and haptics.",
-  //   ],
-  //   status: "coming-soon",
-  //   coverImage: {
-  //     src: "/aurora-hyper.jpg",
-  //     alt: "Mini games preview",
-  //   },
-  //   hero: {
-  //     eyebrow: "Playground",
-  //   },
-  // },
 ];
 
 export function getProjectBySlug(slug: string) {

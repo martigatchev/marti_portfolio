@@ -83,7 +83,7 @@ export default function AboutHero() {
             <div className="relative mx-auto aspect-square w-full max-w-[240px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[340px]">
               <div className="absolute inset-0 grid place-items-center rounded-full border-4 border-black bg-white">
                 <Image
-                  src="/aurora-hyper.jpg"
+                  src="/vosynia/aurora-hyper.jpg"
                   alt="Marti portrait"
                   fill
                   sizes="(min-width: 1024px) 340px, (min-width: 768px) 320px, (min-width: 640px) 280px, 85vw"

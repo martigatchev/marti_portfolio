@@ -90,7 +90,7 @@ export default function Home() {
                 ]}
                 ctaHref="/projects/vosynia"
                 ctaLabel="View Project"
-                imageSrc="/aurora-hyper.jpg"
+                imageSrc="/vosynia/aurora-hyper.jpg"
                 imageAlt="Marti portrait"
                 imageAspect="phone"
                 tilt={false}
