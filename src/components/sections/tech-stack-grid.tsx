@@ -249,9 +249,11 @@ export default function TechStackGrid() {
           {/* Optional balancing tile on small screens */}
           <div className="xl:hidden h-full p-8 sm:p-10 bg-white/70 bg-clip-padding">
             <div className="h-full grid place-items-center text-center">
-              <p className="font-display text-xl sm:text-2xl font-extrabold text-black">
-                Always learning, always shipping.
-              </p>
+              <AnimateOnView as="div" preset="slideLeft" >
+                <p className="font-display text-xl sm:text-2xl font-extrabold text-black">
+                  Always learning, always shipping.
+                </p>
+              </AnimateOnView>
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
       transition: {
         type: "tween",
         ease: "easeOut",
-        duration: 0.5,
+        duration: 0.9,
         when: "beforeChildren", // parent enters first, then children
       },
     },

@@ -53,8 +53,9 @@ function DotList({ items }: { items: string[] }) {
 
 function ExpertiseCard({ c }: { c: Card }) {
   return (
-    <AnimateOnView as="div" preset="slideLeft">
+    
     <div className="h-full p-8 sm:p-10 bg-white/70 bg-clip-padding">
+      <AnimateOnView as="div" preset="slideLeft">
       <div className="flex items-center gap-8">
         <div className="opacity-90">{c.icon}</div>
         <div className="font-display text-4xl sm:text-4xl font-extrabold text-black">
@@ -96,8 +97,9 @@ function ExpertiseCard({ c }: { c: Card }) {
       >
         {c.blurb}
       </p>
+      </AnimateOnView>
     </div>
-    </AnimateOnView>
+    
   );
 }
 
