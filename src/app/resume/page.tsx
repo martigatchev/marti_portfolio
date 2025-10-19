@@ -230,13 +230,13 @@ export default function ResumePage() {
                         Lead Software Engineer
                       </h3>
                       <p className="text-sub text-sm sm:text-base text-black/75">
-                        Risings Education · Contract · Part-time · Remote
+                        Risings Education
                       </p>
                     </div>
                     <span className="text-sub text-sm sm:text-base font-semibold text-black/80 tracking-tight">
                       <span>May 2024 — Nov 2024</span>
                       <span className="mx-2 font-normal text-black/70">•</span>
-                      <span>Vancouver, BC (Remote)</span>
+                      <span>Vancouver, BC</span>
                     </span>
                   </header>
                   <p className="mt-3 text-sub text-black/85 leading-relaxed">
@@ -279,7 +279,7 @@ export default function ResumePage() {
                           Software Engineer (Co-op)
                         </h3>
                         <p className="text-sub text-sm sm:text-base text-black/75">
-                          CubicFarm Systems Corp. · Contract · Full-time
+                          CubicFarm Systems Corp.
                         </p>
                       </div>
                       <span className="text-sub text-sm sm:text-base font-semibold text-black/80 tracking-tight">
