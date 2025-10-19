@@ -258,6 +258,7 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
                         <h4 className="font-display text-lg font-semibold tracking-tight text-black">
                           Tech Stack
                         </h4>
+                        <AnimateOnView as="div" preset="slideLeft" amount={0.2}>
                         <div className="flex flex-wrap gap-2">
                           {[...(tags ?? []), ...(tools ?? [])].map(
                             (tag, index) => (
@@ -270,6 +271,7 @@ export default function ProjectDetailPage({ params }: ProjectPageParams) {
                             )
                           )}
                         </div>
+                        </AnimateOnView>
                       </div>
                     ) : null}
                   </div>

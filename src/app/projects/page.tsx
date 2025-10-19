@@ -81,6 +81,7 @@ function ProjectCard({ project }: { project: ProjectRecord }) {
         </h3>
         <p className="text-sub text-black/85 leading-relaxed">{summary}</p>
 
+      <AnimateOnView as="div" preset="slideLeft" amount={0.2}>
         {tags?.length ? (
           <div className="mt-1 flex flex-wrap gap-2">
             {tags.map((t) => (
@@ -88,6 +89,7 @@ function ProjectCard({ project }: { project: ProjectRecord }) {
             ))}
           </div>
         ) : null}
+        </AnimateOnView>
 
         {/* CTA */}
         <div className="mt-auto pt-2">

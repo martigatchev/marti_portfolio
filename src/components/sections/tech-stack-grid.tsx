@@ -36,6 +36,7 @@ import {
   siLangchain,
   siSupabase,
 } from "simple-icons/icons";
+import { AnimateOnView } from "../ui/animate-on-view";
 
 // Minimal runtime type for a Simple Icons object
 type SI = { path: string; title: string; hex?: string };
@@ -137,22 +138,26 @@ function Card({
       {primary.length > 0 && (
         <>
           <Subhead>Primary stack</Subhead>
+          <AnimateOnView as="div" preset="slideLeft" amount={0.2}>
           <div className="flex flex-wrap gap-2.5">
             {primary.map((t) => (
               <TechPill key={t.label} tech={t} />
             ))}
           </div>
+          </AnimateOnView>
         </>
       )}
 
       {working.length > 0 && (
         <>
           <Subhead>Working knowledge</Subhead>
+          <AnimateOnView as="div" preset="slideLeft" amount={0.2}>
           <div className="flex flex-wrap gap-2.5">
             {working.map((t) => (
               <TechPill key={t.label} tech={t} />
             ))}
           </div>
+          </AnimateOnView>
         </>
       )}
     </div>

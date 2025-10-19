@@ -132,9 +132,9 @@ export function MobileHeader({ borders = false, links }: MobileHeaderProps) {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="text-lg font-bold transition-opacity hover:opacity-80"
+            className="text-lg transition-opacity hover:opacity-80 uppercase tracking-[0.35em] text-black/60"
           >
-            martig.dev
+            marti.dev
           </Link>
 
           <ul className="flex items-center gap-4">
