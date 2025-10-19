@@ -21,7 +21,7 @@ export default function Home() {
           <div className="mt-12">
             <AnimateOnView
               as="h1"
-              preset="slideLeft"
+              preset="fadeUp"
               amount={0.2}
               className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-12 sm:mb-12"
             >
@@ -39,7 +39,7 @@ export default function Home() {
           <div className="mt-18">
             <AnimateOnView
               as="h2"
-              preset="slideLeft"
+              preset="fadeUp"
               once
               amount={0.2}
               className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-12 sm:mb-12"
@@ -64,7 +64,7 @@ export default function Home() {
           <div className="mt-18">
             <AnimateOnView
               as="h2"
-              preset="slideLeft"
+              preset="fadeUp"
               once
               amount={0.2}
               className="font-display text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white mb-12 sm:mb-12"

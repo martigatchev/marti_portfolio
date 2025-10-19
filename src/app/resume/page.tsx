@@ -210,6 +210,7 @@ export default function ResumePage() {
             </p>
           </AnimateOnView>
 
+<AnimateOnView as="div" preset="slideLeft" amount={0.2}>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/resume.pdf"
@@ -232,6 +233,7 @@ export default function ResumePage() {
               View in browser
             </Link>
           </div>
+          </AnimateOnView>
 
           <div className="mt-10 mx-auto w-full max-w-7xl px-2 sm:px-8 space-y-8">
             <AnimateOnView as="div" preset="fadeUp" amount={0.2}>
@@ -314,6 +316,7 @@ export default function ResumePage() {
                       <p className="mt-2 text-sub text-black/80 leading-relaxed">
                         {group.blurb}
                       </p>
+                      <AnimateOnView as="div" preset="slideLeft" amount={0.2}>
                       <div className="mt-4 flex flex-wrap gap-2.5">
                         {group.items.map((item) => (
                           <SkillPill key={item.label} si={item.si}>
@@ -321,6 +324,7 @@ export default function ResumePage() {
                           </SkillPill>
                         ))}
                       </div>
+                      </AnimateOnView>
                     </div>
                   ))}
                 </div>
